@@ -1,59 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Shop2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
-  
-    
-         
-       
-      
-        <body>
-          
-            <h1>Shopping list</h1>
-      
-      
-      <div class="form">
-        <label for="item">Add item to list: </label><input type="text" id="item">
-        <button id="submit">Submit item</button>
-        <button id="clear">Clear items</button>
-      </div>
-      
-      <ul id="list">
-      
-      </ul>
-      
-      
-        
-      
-        <script>
-         var itemInput = document.getElementById("item");
-         var clear = document.getElementById("clear");
-         var submit = document.getElementById("submit");
-         var list = document.getElementById("list");
-      
-         function addItem() {
-           var currentItem = itemInput.value;
-           var listItem = document.createElement("li");
-           listItem.innerHTML = currentItem;
-      
-           list.appendChild(listItem);
-      
-           itemInput.value = "";
-         }
-      
-         submit.onclick = addItem;
-      
-         clear.onclick = function() {
-           list.innerHTML = "";
-           itemInput.value = "";
-         }
-      
-        </script>
-        <link rel="stylesheet" href="style.css" /><link />
-      </html>
+  <body>
+    <div id="myDIV" class="header">
+      <h2 style="margin: 5px;">My shopping list</h2>
+      <input type="text" id="myInput" placeholder="Add an item..." />
+      <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myUL"></ul>
+
+    <script>
+      // Create a "close" button and append it to each list item
+      var myNodelist = document.getElementsByTagName("LI");
+      var i;
+      for (i = 0; i < myNodelist.length; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        myNodelist[i].appendChild(span);
+      }
+
+      // Click on a close button to hide the current list item
+      var close = document.getElementsByClassName("close");
+      var i;
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+          var div = this.parentElement;
+          div.style.display = "none";
+        };
+      }
+
+      // Add a "checked" symbol when clicking on a list item
+      var list = document.querySelector("ul");
+      list.addEventListener(
+        "click",
+        function (ev) {
+          if (ev.target.tagName === "LI") {
+            ev.target.classList.toggle("checked");
+          }
+        },
+        false
+      );
+
+      // Create a new list item when clicking on the "Add" button
+      function newElement() {
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("myInput").value;
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if (inputValue === "") {
+          alert("You must write something!");
+        } else {
+          document.getElementById("myUL").appendChild(li);
+        }
+        document.getElementById("myInput").value = "";
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function () {
+            var div = this.parentElement;
+            div.style.display = "none";
+          };
+        }
+      }
+    </script>
+
+    <link rel="stylesheet" href="style.css" /><link />
   </body>
 </html>
