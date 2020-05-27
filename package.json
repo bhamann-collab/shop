@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/bhamann-collab/shop/issues"
   },
-  "homepage": "https://github.com/bhamann-collab/shop#readme"
+  "homepage": "https://github.com/bhamann-collab/shop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
