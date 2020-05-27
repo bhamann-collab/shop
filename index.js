@@ -26,7 +26,7 @@ connection.connect(function (err) {
 function start() {
   inquirer
     .prompt({
-      name: "postOrBid",
+      name: "",
       type: "list",
       message: "Would you like an [ITEM] or go to [ORDERS]?",
       choices: ["ITEM", "ORDERS", "EXIT"],
@@ -84,7 +84,7 @@ function postAuction() {
     });
 }
 
-function bidAuction() {
+function ordersShop() {
   connection.query("SELECT * items", function (err, results) {
     if (err) throw err;
 
