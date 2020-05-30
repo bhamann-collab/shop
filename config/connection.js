@@ -13,7 +13,8 @@ var sequelize = new Sequelize(process.env.DBNAME, process.env.DBUSERNAME, proces
     min: 0,
     idle: 10000
   },
-  define: {
+    define: {
+    //This is to prevent Sequelize to add an s at the end of a table name
       freezeTableName: true
   }
 });
