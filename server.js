@@ -8,7 +8,7 @@ require("dotenv").config();
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
-
+let db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,17 +25,17 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 //Testing handlebars
-app.get("/", function(req, res) {
-  res.render("index", {
-    foods: "lunches",
-    eater: "david"
-  });
-});
+// app.get("/", function(req, res) {
+//   res.render("index", {
+//     foods: "lunches",
+//     eater: "david"
+//   });
+// });
 
 
 // Routes
 // =============================================================
-// require("./app/routes/api-routes.js")(app);
+ require("./controllers/html-controller.js")(app);
 
 // // Here we introduce HTML routing to serve different HTML files
 // require("./app/routes/html-routes.js")(app);
