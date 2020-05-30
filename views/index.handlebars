@@ -1,14 +1,17 @@
 <div class="text-center">
-    <div class="col-md-8">
-        <!--items for sale-->
-
-    </div>
-    <div class="col-md-4">
-        <!--Your cart-->
-
+    <div class="row">
+        <div class="col-md-8">
+            <!--items for sale-->
+            {{> products}}
+        </div>
+        <div class="col-md-4">
+            <!--Your cart-->
+            {{> cart}}
+        </div>
     </div>
     <div class="col-md-12">
         <!--Payment options-->
-        
+        {{> purchase}}
     </div>
+
 </div>
