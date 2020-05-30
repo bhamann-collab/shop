@@ -15,7 +15,7 @@ router.get("/", function(req, res) {
     });
 });
 
-router.post ("api/items", function(req, res) {
+router.post ("api/orders", function(req, res) {
 item.create ([
     "item", "cart"
 ], [
@@ -26,7 +26,7 @@ item.create ([
 });
 
 
-router.put ("api/items/:id", function(req, res) {
+router.put ("api/orders/:id", function(req, res) {
     var condition = "id = " + req.params.id;
 
     console.log ("condition", condition);

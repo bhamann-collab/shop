@@ -89,7 +89,7 @@ console.log(user);
 $(".delete-cart").on("click", function(event) {
 
   // Send the DELETE request.
-  $.ajax("/api/orders/", {
+  $.ajax("/api/items/", {
     type: "DELETE"
   }).then(
     function() {
@@ -105,7 +105,7 @@ $(".delete-itemCart").on("click", function(event) {
   var id = $(this).data("id");
 
   // Send the DELETE request.
-  $.ajax("/api/orders/" + id, {
+  $.ajax("/api/items/" + id, {
     type: "DELETE"
   }).then(
     function() {

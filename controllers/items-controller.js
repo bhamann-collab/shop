@@ -1,12 +1,12 @@
 var express = require("express");
 var router = express.Router();
 
-//importing item model 
-var item = require("../models/item.js");
+//importing items model 
+var items = require("../models/items.js");
 
 //creating routes
 router.get("/", function(req, res) {
-    item.all(function(data) {
+    items.all(function(data) {
         var hbsObject = {
         item: data
         };
@@ -16,10 +16,10 @@ router.get("/", function(req, res) {
 });
 
 router.post ("api/items", function(req, res) {
-item.create ([
-    "item", "cart"
+items.create ([
+    "items"
 ], [
-   req.body.item, req.body.cart 
+   req.body.items
 ], function (result) {
     res.json ({id: result.insertID });
 });
@@ -31,7 +31,21 @@ router.put ("api/items/:id", function(req, res) {
 
     console.log ("condition", condition);
 
-item.update ({
+
+router.delete("/api/items/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  items.delete(condition, function(result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+
+items.update ({
     cart: req.body.cart
 }, condition, function(result) {
     if (result.changedRows == 0) {

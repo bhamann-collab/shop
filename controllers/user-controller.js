@@ -15,24 +15,24 @@ router.get("/", function(req, res) {
     });
 });
 
-router.post ("api/items", function(req, res) {
+router.post ("api/user", function(req, res) {
 item.create ([
-    "item", "cart"
+    "name", ",lastName", "email", "password"
 ], [
-   req.body.item, req.body.cart 
+   req.body.name, req.body.lastName, req.body.email, req.body.password
 ], function (result) {
     res.json ({id: result.insertID });
 });
 });
 
 
-router.put ("api/items/:id", function(req, res) {
+router.put ("api/user/:id", function(req, res) {
     var condition = "id = " + req.params.id;
 
     console.log ("condition", condition);
 
 item.update ({
-    cart: req.body.cart
+    name: req.body.name
 }, condition, function(result) {
     if (result.changedRows == 0) {
         return res.status (404).end();
