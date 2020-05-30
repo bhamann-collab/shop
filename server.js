@@ -14,7 +14,24 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory to be served`
-app.use(express.static("app/public"));
+app.use(express.static("./public"));
+
+//Sets up handlebars
+let exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({
+    defaultLayout: "main",
+    extname: "handlebars"
+}));
+app.set("view engine", "handlebars");
+
+//Testing handlebars
+app.get("/", function(req, res) {
+  res.render("index", {
+    foods: "lunches",
+    eater: "david"
+  });
+});
+
 
 // Routes
 // =============================================================
