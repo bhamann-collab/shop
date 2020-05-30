@@ -16,9 +16,30 @@ app.use(express.json());
 // Static directory to be served`
 app.use(express.static("app/public"));
 
-// Routes
+
+
+
+// Controllers
 // =============================================================
-// require("./app/routes/api-routes.js")(app);
+// require("./controllers/saleitems-controller.js")(app);
+
+//--------------Just a test for handlebars----------
+//Sets up handlebars
+// let exphbs = require("express-handlebars");
+// app.engine("handlebars", exphbs({
+//     defaultLayout: "main",
+//     extname: "handlebars"
+// }));
+
+// app.set("view engine", "handlebars");
+
+// app.get("/", function(req, res) {
+//   res.render("index", {
+//     foods: "lunches",
+//     eater: "david"
+//   });
+// });
+
 
 // // Here we introduce HTML routing to serve different HTML files
 // require("./app/routes/html-routes.js")(app);
@@ -32,7 +53,7 @@ app.listen(PORT, function() {
 
 //----------------BELOW IS A TEST TO ENSURE ENV VARS ARE WORKING AND CONNECTION TO DB CAN BE ESTABLISHED----------------------------
 
-// // // Dependencies
+// // Dependencies
 // var Sequelize = require("sequelize");
 // console.log(`DB Name - ${process.env.DBNAME} DB User - ${process.env.DBUSERNAME} DB Password - ${process.env.DBPASSWORD} DB Host - ${process.env.DBHOST}`);
 
