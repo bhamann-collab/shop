@@ -46,7 +46,7 @@ router.delete("/api/items/:id", function(req, res) {
 });
 
 items.update ({
-    cart: req.body.cart
+    items: req.body.items
 }, condition, function(result) {
     if (result.changedRows == 0) {
         return res.status (404).end();
