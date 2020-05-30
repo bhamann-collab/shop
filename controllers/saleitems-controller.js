@@ -2,44 +2,27 @@ var express = require("express");
 var router = express.Router();
 
 //importing item model 
-var item = require("../models/saleitems.js");
+var Item = require("../models/saleitems.js");
 
 //creating routes
-router.get("/", function(req, res) {
-    item.all(function(data) {
-        var hbsObject = {
-        item: data
-        };
-        console.log(hbsObject);
-        res.render("index", hbsObject); // rendering at handle bars.
-    });
+
+//Getting all entries from the saleitems table
+router.get("/api/saleitems", function(req, res) {
+    Item.findAll().then(function(result) {
+        return res.json(result)
+    })
 });
 
-router.post ("api/items", function(req, res) {
-item.create ([
-    "item", "cart"
-], [
-   req.body.item, req.body.cart 
-], function (result) {
-    res.json ({id: result.insertID });
-});
-});
+//posting a new entry in the saleitems table
+router.post ("/api/saleitems", function(req, res) {
+    var item = req.body;
 
-
-router.put ("api/items/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-
-    console.log ("condition", condition);
-
-item.update ({
-    cart: req.body.cart
-}, condition, function(result) {
-    if (result.changedRows == 0) {
-        return res.status (404).end();
-    } else {
-        res.status(200).end();
-    }
-});
+    Item.create({
+        name: item.name,
+        price: item.price
+      });
+  
+      res.status(204).end();
 });
 
 // exporting routes to server.js
