@@ -15,15 +15,4 @@ SaleItems.sync();
 
 module.exports = SaleItems;
 
-// module.exports = function(sequelize, DataTypes) {
-//   console.log(sequelize)
-
-//   var SaleItems = sequelize.define("saleItems", {
-//       item: DataTypes.STRING,
-//       cart: DataTypes.BOOLEAN
-// });
-
-
-// return SaleItems;
-// }
 
