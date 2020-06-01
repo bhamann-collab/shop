@@ -71,7 +71,7 @@ var user = {
 console.log(user);
 
 //send post request
-  $.ajax("/api/user", {
+  $.ajax("/api/users", {
     type: "POST",
     data: user
   }).then(
@@ -89,7 +89,7 @@ console.log(user);
 $(".delete-cart").on("click", function(event) {
 
   // Send the DELETE request.
-  $.ajax("/api/items/", {
+  $.ajax("api/saleItems/", {
     type: "DELETE"
   }).then(
     function() {
@@ -105,7 +105,7 @@ $(".delete-itemCart").on("click", function(event) {
   var id = $(this).data("id");
 
   // Send the DELETE request.
-  $.ajax("/api/items/" + id, {
+  $.ajax("/api/saleItems" + id, {
     type: "DELETE"
   }).then(
     function() {

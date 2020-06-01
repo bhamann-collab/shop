@@ -25,9 +25,14 @@ items.create ([
 });
 });
 
+//posting a new entry in the items table
+router.post ("/api/items", function(req, res) {
+    var items = req.body;
 
-router.put ("api/items/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+    Items.create({
+        orderId: items.orderId,
+        saleItemId: items.saleItemId
+    })
 
     console.log ("condition", condition);
 
