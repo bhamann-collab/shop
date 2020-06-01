@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 //importing Items model 
-var Items = require("../models/items");
+var {items: Items} = require("../models/index");
 
 //creating routes
 
@@ -11,11 +11,18 @@ router.get("/api/items", function(req, res) {
     Items.findAll().then(function(result) {
         return res.json(result)
     })
-});
+})
 
 //posting a new entry in the items table
 router.post ("/api/items", function(req, res) {
-    console.log("hi")
+    var items = req.body;
+
+    Items.create({
+        orderId: items.orderId,
+        saleItems: items.saleItems
+    })
+
+    res.status(204).end();
 });
 
 // exporting routes to server.js

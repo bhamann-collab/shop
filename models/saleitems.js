@@ -1,30 +1,20 @@
-// //references the standard library
-const Sequelize = require("sequelize")
-
-const sequelize = require("../config/connection.js")
-
-// const SaleItems = sequelize.define("items_for_sale", {
-//   name: Sequelize.STRING,
-//   price: Sequelize.DOUBLE,
-// })
-
-
-// SaleItems.sync();
-
-
-
-// module.exports = SaleItems;
-
-
 module.exports = function(sequelize, DataTypes) {
-  const SaleItems = sequelize.define("items_for_sale", {
-    name: Sequelize.STRING,
-    price: Sequelize.DOUBLE,
+    const SaleItems = sequelize.define("saleItems", {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        price: {
+            type: DataTypes.DOUBLE,
+            allowNull: false
+        }
 
-  }, {
-    freezeTableName: true
-  })
+    })
   
+    SaleItems.associate = models => {
+        SaleItems.hasMany(models.items)
+    }
+
   SaleItems.sync();
 
   return SaleItems

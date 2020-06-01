@@ -2,25 +2,26 @@ var express = require("express");
 var router = express.Router();
 
 //importing SaleItem model 
-var {items_for_sale: SaleItem} = require("../models/index");
+var {saleItems: SaleItems} = require("../models/index");
 
 //creating routes
 
 //Getting all entries from the saleitems table
-router.get("/api/saleitems", function(req, res) {
-    SaleItem.findAll().then(function(result) {
+router.get("/api/saleItems", function(req, res) {
+    SaleItems.findAll().then(function(result) {
         return res.json(result)
     })
 });
 
 //posting a new entry in the saleitems table
-router.post ("/api/saleitems", function(req, res) {
-    var saleItem = req.body;
+router.post ("/api/saleItems", function(req, res) {
+    var saleItems = req.body;
+    console.log(saleItems)
 
-    SaleItem.create({
-        name: saleItem.name,
-        price: saleItem.price
-      });
+    SaleItems.create({
+        name: saleItems.name,
+        price: saleItems.price
+    });
   
       res.status(204).end();
 });
