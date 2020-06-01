@@ -19,7 +19,7 @@ router.post ("/api/items", function(req, res) {
 
     Items.create({
         orderId: items.orderId,
-        saleItems: items.saleItems
+        saleItemId: items.saleItemId
     })
 
     res.status(204).end();

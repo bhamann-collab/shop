@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        saleItemsId: {
+        saleItemId: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
 
     Items.associate = models => {
         Items.belongsTo(models.saleItems, {
-            foreignKey: "saleItemsId"
+            foreignKey: "saleItemId"
         })
     }
 
