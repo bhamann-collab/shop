@@ -1,45 +1,28 @@
 var express = require("express");
 var router = express.Router();
 
-//importing item model 
-var item = require("../models/item.js");
+//importing Items model 
+var {items: Items} = require("../models/index");
 
 //creating routes
-router.get("/", function(req, res) {
-    item.all(function(data) {
-        var hbsObject = {
-        item: data
-        };
-        console.log(hbsObject);
-        res.render("index", hbsObject); // rendering at handle bars.
-    });
-});
 
-router.post ("api/items", function(req, res) {
-item.create ([
-    "item", "cart"
-], [
-   req.body.item, req.body.cart 
-], function (result) {
-    res.json ({id: result.insertID });
-});
-});
+//Getting all entries from the items table
+router.get("/api/items", function(req, res) {
+    Items.findAll().then(function(result) {
+        return res.json(result)
+    })
+})
 
+//posting a new entry in the items table
+router.post ("/api/items", function(req, res) {
+    var items = req.body;
 
-router.put ("api/items/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+    Items.create({
+        orderId: items.orderId,
+        saleItemId: items.saleItemId
+    })
 
-    console.log ("condition", condition);
-
-item.update ({
-    cart: req.body.cart
-}, condition, function(result) {
-    if (result.changedRows == 0) {
-        return res.status (404).end();
-    } else {
-        res.status(200).end();
-    }
-});
+    res.status(204).end();
 });
 
 // exporting routes to server.js

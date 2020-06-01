@@ -1,8 +1,31 @@
 module.exports = function(sequelize, DataTypes) {
-    var Items = sequelize.define("items", {
-        item: DataTypes.STRING,
-        cart: DataTypes.BOOLEAN
-});
+    const Items = sequelize.define("items", {
+        orderId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        saleItemId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
 
-return Items;
+    })
+
+    Items.associate = models => {
+        Items.belongsTo(models.orders, {
+            foreignKey: "orderId"
+        })
+    }
+
+    Items.associate = models => {
+        Items.belongsTo(models.saleItems, {
+            foreignKey: "saleItemId"
+        })
+    }
+
+    Items.sync();
+
+    return Items
 }
+
+
