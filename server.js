@@ -8,7 +8,7 @@ require("dotenv").config();
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
-let db = require("./models");
+//let db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -35,10 +35,12 @@ app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-
+app.use(require('./controllers/user-controller'))
+app.use(require('./controllers/orders-controller'))
 app.use(require('./controllers/saleitems-controller'))
+app.use(require('./controllers/items-controller'))
+// =============================================================
 
-====================
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
