@@ -27,8 +27,8 @@ Fork and run npm install in the terminal
 Public Domain
 
 ## Contributors
-Anlego Ungos
-Brock Hamann
-Claire Vandenberg 
-Damian Tapp
-Matt Teague
+* Anlego Ungos
+* Brock Hamann
+* Claire Vandenberg 
+* Damian Tapp
+* Matt Teague
