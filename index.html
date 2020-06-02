@@ -5,6 +5,111 @@
     <meta charset="UTF-8">
     <title>Kicks United</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+<<<<<<< HEAD
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar">
+          <a class="navbar-brand">Shoes for you.</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <button
+            onclick="document.getElementById('id01').style.display='block'"
+            style="width: auto;"
+          >
+            Login
+          </button>
+
+          <div id="id01" class="modal">
+            <form
+              class="modal-content animate"
+              action="/action_page.php"
+              method="post"
+            >
+              <div class="imgcontainer">
+                <span
+                  onclick="document.getElementById('id01').style.display='none'"
+                  class="close"
+                  title="Close Modal"
+                  >&times;</span
+                >
+               
+              </div>
+
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input
+                  type="text"
+                  placeholder="Enter Username"
+                  name="uname"
+                  required
+                />
+
+                <label for="psw"><b>Password</b></label>
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  name="psw"
+                  required
+                />
+
+                <button type="submit">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember" />
+                  Remember me
+                </label>
+              </div>
+
+              <div class="container" style="background-color: #f1f1f1;">
+                <button
+                  type="button"
+                  onclick="document.getElementById('id01').style.display='none'"
+                  class="cancelbtn"
+                >
+                  Cancel
+                </button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+          </div>
+        </ul>
+      </div>
+      <ul class="nav navbar-nav">
+      <a class="navbar-brand"
+        action=""
+        style="margin: auto; max-width: 400px;"
+      >
+        <input type="text" placeholder="Search.." name="search2" />
+        <button type="submit"><i class="fa fa-search"></i></button>
+     </a>
+     </ul>
+      <div class="input-container">
+        <i class="fa fa-user icon"></i>
+        <input
+          class="input-field"
+          type="text"
+          placeholder="create new user..."
+          name="usrnm"
+        />
+       
+      </div>
+    </nav>
+
+    <div id="myDIV" class="header">
+      <h2 style="margin: 5px;">My shoe shopping list</h2>
+      <input type="text" id="myInput" placeholder="Add an item..." />
+      <span onclick="newElement()" class="addBtn">Add</span>
+     
+=======
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -67,9 +172,57 @@
         <h2 style="margin: 5px;">My shoe shopping list</h2>
         <input type="text" id="myInput" placeholder="Add an item..." />
         <span onclick="newElement()" class="addBtn">Add</span>
+>>>>>>> 33a8ae619c656e74915944414e06868a432d15ed
     </div>
+ 
+    <div class="grid-container">
+      <div class="item1">
+       
+       <div class="col-4">
+         <ul id="myUL"></ul>
+        Shoe 1<img class="img img-thumbnail" src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg"/> 
+        
+        Shoe 2<img class="img img-thumbnail" src="https://www.tenniswarehouse.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/a/aa8030-108-phsrh000-1000.1578879230.jpeg"/> 
 
-    <ul id="myUL"></ul>
+        Shoe 3<img class="img img-thumbnail" src="https://media.hypedc.com/media/catalog/product/cache/1/image/1500x/9df78eab33525d08d6e5fb8d27136e95/a/r/ar9293-001_blk_01.jpg"/>   
+
+        Shoe 4<img class="img img-thumbnail" src="https://images.boardriders.com/globalGrey/dcshoes-products/all/default/large/adys100476_legacyog,p_mlt_frt2.jpg"/>       
+      </div>
+</div>
+      <div class="item3">3<div class="container">
+        <h4>Cart
+          <span class="price" style="color:red">
+            <i class="fa fa-shopping-cart"></i>
+            <b></b>
+          </span>
+        </h4>
+        <p><span class="price">$</span></p>
+        <p><span class="price">$</span></p>
+        <p><span class="price">$</span></p>
+        <p><span class="price">$</span></p>
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>$</b></span></p>
+        <form>
+        <input type="submit" value="Continue to checkout" class="btn">
+        </form>
+      </div>
+    </div>
+  </div></div>
+      <div class="item4">4
+        <form
+          class="example"
+          action="/action_page.php"
+          style="margin: auto; max-width: 300px;"
+        >
+          <input type="text" placeholder="Search.." name="search2" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+
+      <div class="item6">
+        6
+      </div>
+    </div>
 
     <script>
         // Create a "close" button and append it to each list item
@@ -131,6 +284,19 @@
                 };
             }
         }
+<<<<<<< HEAD
+      }
+      // Get the modal
+      var modal = document.getElementById("id01");
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+=======
+>>>>>>> 33a8ae619c656e74915944414e06868a432d15ed
     </script>
 
 
