@@ -59,8 +59,12 @@ function newElement() {
 }
 
 // Ajax post when user completes login form.
-$(".create-form").on("submit", function(event) {
+$(document).ready(function() {
   event.preventDefault();
+
+  //User clicks SUBMIT user details will be validated
+loginForm.on("submit", function(event) {
+event.preventDefault();
 
 var user = {
   name: $("#name").val().trim(),

@@ -24,13 +24,13 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-//Testing handlebars
-// app.get("/", function(req, res) {
-//   res.render("index", {
-//     foods: "lunches",
-//     eater: "david"
-//   });
-// });
+// Testing handlebars
+app.get("/", function(req, res) {
+  res.render("index", {
+    foods: "lunches",
+    eater: "david"
+  });
+});
 
 
 // Routes
