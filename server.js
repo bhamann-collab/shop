@@ -30,7 +30,7 @@ app.set("view engine", "handlebars");
 //     foods: "lunches",
 //     eater: "david"
 //   });
-// });
+// }); 
 
 
 // Routes
@@ -39,6 +39,7 @@ app.use(require('./controllers/user-controller'))
 app.use(require('./controllers/orders-controller'))
 app.use(require('./controllers/saleitems-controller'))
 app.use(require('./controllers/items-controller'))
+require('./controllers/html-controller')(app)
 // =============================================================
 
 app.listen(PORT, function() {
