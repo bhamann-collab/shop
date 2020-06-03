@@ -1,25 +1,18 @@
-<div class="container text-center">
-
-    <div id="myDIV" class="header">
-        <h2 style="margin: 5px;">My shoe shopping list</h2>
-        <input type="text" id="myInput" placeholder="Add an item..." />
-        <span onclick="newElement()" class="addBtn">Add</span>
+<div class="text-center">
+    <div class="row">
+        <div class="col-md-8">
+            <!--items for sale-->
+            {{> products}}
+        </div>
+        <div class="col-md-4">
+            <!--Your cart-->
+            {{> cart}}
+        </div>
     </div>
-
-    <ul id="myUL"></ul>
-
-    {{!-- <div class="row">
-        <div class="col-md-6 text-center">
-            <h3>SHOP</h3>
-            <ul class=>
-                {{#each}}
-                <li>
-                    {{/each}}
-                </li>
-            </ul>
-        </div> --}}
-
-
-
-
+    <div class="col-md-12">
+        <!--Payment options-->
+        {{> purchase}}
+    </div>
 </div>
+
+

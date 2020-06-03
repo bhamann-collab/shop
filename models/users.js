@@ -1,8 +1,16 @@
 module.exports = function(sequelize, DataTypes) {
-    var Users = sequelize.define("users", {
-        item: DataTypes.STRING,
-        cart: DataTypes.BOOLEAN
-});
-
-return Users;
+    const Users = sequelize.define("users", {
+        name: {
+            type: DataTypes.STRING,
+        allowNull: false
+        }
+    })
+  
+    Users.associate = models => {
+        Users.hasMany(models.orders, {
+            onDelete: "cascade"
+        })
+    }
+    Users.sync();
+    return Users
 }
