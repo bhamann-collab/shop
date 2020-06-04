@@ -1,18 +1,22 @@
 <div class="text-center">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-4">
             <!--items for sale-->
             {{> products}}
+            {{#each data}}
+                {{this.dataValues.name}}
+            {{/each}}
         </div>
         <div class="col-md-4">
             <!--Your cart-->
             {{> cart}}
         </div>
-    </div>
-    <div class="col-md-12">
+            <div class="col-md-4">
         <!--Payment options-->
         {{> purchase}}
     </div>
-
+  </div>
 </div>
+
+
 
