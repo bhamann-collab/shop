@@ -60,43 +60,38 @@
     <span onclick="newElement()" class="addBtn">Add</span>     
 </div>
 
-<div class="grid-container">
-    <div class="item1">
-        <div class="col-4">
-            <ul id="myUL"></ul>
-            Shoe 1
-            <img class="img img-thumbnail" src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg"/> 
-        
-            Shoe 2
-            <img class="img img-thumbnail" src="https://www.tenniswarehouse.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/a/aa8030-108-phsrh000-1000.1578879230.jpeg"/> 
-
-            Shoe 3
-            <img class="img img-thumbnail" src="https://media.hypedc.com/media/catalog/product/cache/1/image/1500x/9df78eab33525d08d6e5fb8d27136e95/a/r/ar9293-001_blk_01.jpg"/>   
-
-            Shoe 4
-            <img class="img img-thumbnail" src="https://images.boardriders.com/globalGrey/dcshoes-products/all/default/large/adys100476_legacyog,p_mlt_frt2.jpg"/>       
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="item1">
+                <ul id="myUL"></ul>
+                {{> cart}}
+            </div>
+        </div>
+        <div class="col-xs-8">
+            <div class="item3">
+                <div class="container">
+                    <h4>
+                        Cart
+                        <span class="price red">
+                            <i class="fa fa-shopping-cart"></i>
+                            <b></b>
+                        </span>
+                    </h4>
+                    <p><span class="price">$</span></p>
+                    <p><span class="price">$</span></p>
+                    <p><span class="price">$</span></p>
+                    <p><span class="price">$</span></p>
+                    <hr>
+                    <p>Total <span class="price black"><b>$</b></span></p>
+                    <form>
+                        <input type="submit" value="Continue to checkout" class="btn">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="item3">
-        <div class="container">
-            <h4>
-                Cart
-                <span class="price red">
-                    <i class="fa fa-shopping-cart"></i>
-                    <b></b>
-                </span>
-            </h4>
-            <p><span class="price">$</span></p>
-            <p><span class="price">$</span></p>
-            <p><span class="price">$</span></p>
-            <p><span class="price">$</span></p>
-            <hr>
-            <p>Total <span class="price black"><b>$</b></span></p>
-            <form>
-                <input type="submit" value="Continue to checkout" class="btn">
-            </form>
-        </div>
-    </div>
+
 </div>
 
 <div class="item4">
