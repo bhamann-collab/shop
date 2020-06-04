@@ -1,111 +1,77 @@
-<nav class="navbar navbar-expand-lg navbar">
-    <a class="navbar-brand">Shoes for you.</a>
-    </div>
-    <ul class="nav navbar-nav">
-        <button onclick="document.getElementById('id01').style.display='block'" style="width: auto;">
-            Login
-        </button>
+<button onclick="document.getElementById('id01').style.display='block'" style="width: auto;">
+    Login
+</button>
 
-        <div id="id01" class="modal">
-            <form class="modal-content animate" action="/action_page.php" method="post">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
+<div id="id01" class="modal">
+    <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required />
 
-                </div>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required />
 
-                <div class="container">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required />
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required />
-
-                    <button type="submit">Login</button>
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember" />
-                        Remember me
-                    </label>
-                </div>
-
-                <div class="container myContainer">
-                    <button
-                        type="button"
-                        onclick="document.getElementById('id01').style.display='none'"
-                        class="cancelbtn"
-                    >
-                        Cancel
-                    </button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
+            <button type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember" /> Remember
+                me
+            </label>
         </div>
-    </ul>
-    
-    <ul class="nav navbar-nav myNavbar2">
-        <a class="navbar-brand" action="">
-            <input type="text" placeholder="Search.." name="search2" />
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </a>
-    </ul>
-    <div class="input-container">
-        <i class="fa fa-user icon"></i>
-        <input class="input-field" type="text" placeholder="create new user..." name="usrnm" />
-    </div>
-</nav>
 
-<div id="myDIV" class="header">
-    <h2>My shoe shopping list</h2>
-    <input type="text" id="myInput" placeholder="Add an item..." />
-    <span onclick="newElement()" class="addBtn">Add</span>     
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-xs-4">
-            <div class="item1">
-                <ul id="myUL"></ul>
-                {{> products}}
-            </div>
+        <div class="container" style="background-color: #f1f1f1;">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Cancel
+            </button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
-        <div class="col-xs-8">
-            <div class="item3">
-                <div class="container">
-                    <h4>
-                        Cart
-                        <span class="price red">
-                            <i class="fa fa-shopping-cart"></i>
-                            <b></b>
-                        </span>
-                        {{> cart}}
-                    </h4>
-
-                    <hr>
-                    <p>Total <span class="price black"><b>$</b></span></p>
-                    <form>
-                        <input type="submit" value="Continue to checkout" class="btn">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<div class="item4">
-    <form class="example" action="" style="margin: auto; max-width: 300px;">
-        <input type="text" placeholder="Search.." name="search2" />
-        <button type="submit"><i class="fa fa-search"></i></button>
     </form>
 </div>
 
 
+<div id="myDIV" class="header">
+    <h2 style="margin: 5px;">My shoe shopping list</h2>
+    <input type="text" id="myInput" placeholder="Add an item..." />
+    <span onclick="newElement()" class="addBtn">Add</span>
+</div>
+
+<div class="row">
+    <div class="column" style="background-color: #aaa;">
+        <h2>ADD SHOES..</h2>
+        <ul id="myUL"></ul>
+    </div>
+    <div class="column" style="background-color: #bbb;">
+        <h2>
+            YOUR CART..
+            <span class="price" style="color: red;">
+                <i class="fa fa-shopping-cart"></i>
+            </span>
+            <br />
+            <br />
+            <p><span class="price">$...</span></p>
+            <p><span class="price">$...</span></p>
+            <p><span class="price">$...</span></p>
+            <p><span class="price">$...</span></p>
+            <p>
+                Total <span class="price" style="color: black;"><b>$...</b></span>
+            </p>
+        </h2>
+        <form>
+            <input type="submit" value="Continue to checkout" class="btn" style="color: blue;" />
+        </form>
+    </div>
+</div>
+<div class="footer">
+    <h2>Footer</h2>
+</div>
 
 {{!-- <div class="text-center">
     <div class="row">
         <div class="col-md-4">
             <!--items for sale-->
             {{> products}}
+            {{#each data}}
+                {{this.dataValues.name}}
+            {{/each}}
         </div>
         <div class="col-md-4">
             <!--Your cart-->
@@ -117,11 +83,3 @@
     </div>
   </div>
 </div> --}}
-
-{{!-- {{#each data}}
-    {{this.dataValues.name}}
-{{/each}} --}}
-
-
-
-
