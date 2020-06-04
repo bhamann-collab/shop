@@ -1,42 +1,25 @@
 <nav class="navbar navbar-expand-lg navbar">
-        
-    <ul class="nav navbar-nav myNavbar">
-        <button onclick="document.getElementById('id01').style.display='block'">
-        Login
+    <a class="navbar-brand">Shoes for you.</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <button onclick="document.getElementById('id01').style.display='block'" style="width: auto;">
+            Login
         </button>
 
         <div id="id01" class="modal">
-            <form
-            class="modal-content animate"
-            action=""
-            method="post"
-            >
+            <form class="modal-content animate" action="/action_page.php" method="post">
                 <div class="imgcontainer">
-                    <span
-                    onclick="document.getElementById('id01').style.display='none'"
-                    class="close"
-                    title="Close Modal"
-                    >&times;</span
-                    >
-                
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+
                 </div>
 
                 <div class="container">
                     <label for="uname"><b>Username</b></label>
-                    <input
-                    type="text"
-                    placeholder="Enter Username"
-                    name="uname"
-                    required
-                    />
+                    <input type="text" placeholder="Enter Username" name="uname" required />
 
                     <label for="psw"><b>Password</b></label>
-                    <input
-                        type="password"
-                        placeholder="Enter Password"
-                        name="psw"
-                        required
-                    />
+                    <input type="password" placeholder="Enter Password" name="psw" required />
 
                     <button type="submit">Login</button>
                     <label>
@@ -60,22 +43,14 @@
     </ul>
     
     <ul class="nav navbar-nav myNavbar2">
-        <a class="navbar-brand"
-        action=""
-        >
+        <a class="navbar-brand" action="">
             <input type="text" placeholder="Search.." name="search2" />
             <button type="submit"><i class="fa fa-search"></i></button>
         </a>
     </ul>
-
     <div class="input-container">
         <i class="fa fa-user icon"></i>
-        <input
-            class="input-field"
-            type="text"
-            placeholder="create new user..."
-            name="usrnm"
-        />
+        <input class="input-field" type="text" placeholder="create new user..." name="usrnm" />
     </div>
 </nav>
 
@@ -87,7 +62,7 @@
 
 <div class="grid-container">
     <div class="item1">
-       <div class="col-4">
+        <div class="col-4">
             <ul id="myUL"></ul>
             Shoe 1
             <img class="img img-thumbnail" src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg"/> 
@@ -124,8 +99,12 @@
     </div>
 </div>
 
-
-
+<div class="item4">
+    <form class="example" action="" style="margin: auto; max-width: 300px;">
+        <input type="text" placeholder="Search.." name="search2" />
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</div>
 
 
 
@@ -149,6 +128,7 @@
 {{!-- {{#each data}}
     {{this.dataValues.name}}
 {{/each}} --}}
+
 
 
 
