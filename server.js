@@ -24,14 +24,6 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-// Testing handlebars
-app.get("/", function(req, res) {
-  res.render("index", {
-    foods: "lunches",
-    eater: "david"
-  });
-});
-
 
 // Routes
 // =============================================================
@@ -39,6 +31,7 @@ app.use(require('./controllers/user-controller'))
 app.use(require('./controllers/orders-controller'))
 app.use(require('./controllers/saleitems-controller'))
 app.use(require('./controllers/items-controller'))
+require('./controllers/html-controller')(app)
 // =============================================================
 
 app.listen(PORT, function() {

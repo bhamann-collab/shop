@@ -120,7 +120,7 @@ input {
 }
 body {
   background-size: cover;
-  background-image: url("https://cdn.shopify.com/s/files/1/0053/4999/8661/products/OSCANVASwashedblueANGLE_1_600x.jpg?v=1584392648");
+  /* background-image: url("https://cdn.shopify.com/s/files/1/0053/4999/8661/products/OSCANVASwashedblueANGLE_1_600x.jpg?v=1584392648"); */
 }
 .item1 {
   grid-area: 1;
