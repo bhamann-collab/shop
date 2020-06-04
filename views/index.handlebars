@@ -3,6 +3,9 @@
         <div class="col-md-4">
             <!--items for sale-->
             {{> products}}
+            {{#each data}}
+                {{this.dataValues.name}}
+            {{/each}}
         </div>
         <div class="col-md-4">
             <!--Your cart-->
