@@ -1,7 +1,7 @@
 //Controllers handle the behaviour between user input and program actions. In this case it is referring user routes to database queries using the burger model.
 
 //Required dependencies.
-let db = require("../models");
+let db = require("../models")
 let myData = {}
 
 console.log(db.users)
