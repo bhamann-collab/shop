@@ -1,13 +1,15 @@
-<h1>Your Cart</h1>
-
 <div class="row">
     <div class="col-md-12">
-        <ul>
-            {{#each orders}}
-            <li>
-                <p class="orders">{{id}}. {{Orders}}</p>
-            </li>
+        {{#each user}}
+                    <h1>Welcome {{this.dataValues.name}}</h1>
+            {{#each this.dataValues.orders}}
+            <h3>Order Id: {{this.dataValues.order_code}}</h3>
+                <ul>
+                    {{#each this.dataValues.items}}
+                        <p>{{dataValues.saleItem.dataValues.name}}: ${{dataValues.saleItem.dataValues.price}}<span class="price"></span></p>
+                    {{/each}}
+                </ul>
             {{/each}}
-        </ul>
+        {{/each}}
     </div>
 </div>

@@ -18,7 +18,10 @@ router.post("/api/users", function(req, res) {
     var users = req.body;
 
     Users.create({
-        name: users.name
+        name: users.name,
+        lastName: users.lastName,
+        email: users.email,
+        password: users.password,
       });
   
       res.status(204).end();
