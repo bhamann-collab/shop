@@ -2,24 +2,18 @@
 
 //Required dependencies.
 let db = require("../models");
+let myData = {}
 
 console.log(db.users)
 
 module.exports = function (app) {
-    app.get("/", function (req, res) {
+    app.get("/", async function (req, res) {
 
         //two pieces of data to be sent to the root file
-
         
-        db.saleItems.findAll().then((result) => {
+        myData.itemsForSale = await db.saleItems.findAll()
 
-            //console.log({result})
-
-             //sends object to handlebars for display (conversion was required as handlebars can only handle objects)
-            //res.render("index", {itemsForSale: result});
-        })
-
-        db.users.findAll({
+        myData.user = await db.users.findAll({
             //Test case, using user id: 2 for now
             where: {id: 2 },
             include: [{
@@ -35,9 +29,8 @@ module.exports = function (app) {
                     }]
                 }]
             }]
-        }).then((result) => {
-            res.render("index", {user: result});
         })
+        res.render("index", myData);
     });
 };
 
