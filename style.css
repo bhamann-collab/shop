@@ -82,42 +82,6 @@ ul li.checked::before {
   color: white;
   text-align: center;
 }
-
-/* Clear floats after the header */
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Style the input */
-input {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  width: 75%;
-  padding: 10px;
-  float: left;
-  font-size: 16px;
-}
-
-/* Style the "Add" button */
-.addBtn {
-  padding: 10px;
-  width: 25%;
-  background: #d9d9d9;
-  color: #555;
-  float: left;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 0;
-}
-
-.addBtn:hover {
-  background-color: #bbb;
-}
 body {
   background-size: cover;
   background-image: url("https://cdn.shopify.com/s/files/1/0053/4999/8661/products/OSCANVASwashedblueANGLE_1_600x.jpg?v=1584392648");
@@ -327,4 +291,19 @@ label {
 
 .dropdown:hover .dropbtn {
   background-color: skyblue;
+}
+.btn {
+  background-color: #2196f3;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #2196f3;
 }
