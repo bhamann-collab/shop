@@ -1,4 +1,6 @@
-//Controllers handle the behaviour between user input and program actions. In this case it is referring user routes to database queries using the burger model.
+const express = require('express');
+const router = express.Router();
+const { ensureAuthenticated, forwardAuthenticated } = require('../config/middleware/isAuthenticated');
 
 //Required dependencies.
 let db = require("../models")
@@ -33,5 +35,13 @@ module.exports = function (app) {
         res.render("index", myData);
     });
 };
+
+// router.get('/', ensureAuthenticated, (req, res) =>
+//   res.render('index', {
+//     user: req.user
+//   })
+// );
+
+// module.exports = router;
 
 

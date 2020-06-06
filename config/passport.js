@@ -1,15 +1,20 @@
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
+const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require ("bcryptjs")
 
-var db = require("../models");
+const db = require("../models");
+
+// Load User Model
+const User = require('../models/users.js');
 
 //using local strategy (email and password);
-passport.use(new LocalStrategy(
-  {
+module.exports = function (passport) {
+  passport.use(
+  new LocalStrategy ({
       usernameField: "email"
     },
     function(email, password, done) {
-          // When a user tries to sign in this code runs
+         
+      // When a user tries to sign in this code runs
       db.User.findOne({
           where: {
             email: email
@@ -34,6 +39,7 @@ passport.use(new LocalStrategy(
         }
       ));
 
+
 // sequelize serialise and deserialise user data.
 passport.serializeUser(function(user, cb) {
   cb(null, user);
@@ -45,3 +51,5 @@ passport.deserializeUser(function(obj, cb) {
 
 // Exporting our configured passport
 module.exports = passport;
+
+};
