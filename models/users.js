@@ -22,8 +22,16 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
         }
     })
-        
-    
+    module.exports.createUser = function(newUser, callback) {
+        bcrypt.genSalt(saltRounds, function(err, salt) {
+            bcrypt.hash(newUser.password, salt, function(err, hash) {
+                // Store hash in your password DB.
+                newUser.passowrd = hash;
+                newUser.save(callback);
+            });
+        });
+    }
+
     Users.associate = models => {
         Users.hasMany(models.orders, {
             onDelete: "cascade"
@@ -41,5 +49,23 @@ module.exports = function(sequelize, DataTypes) {
 
     Users.sync();
     return Users
+}
+
+//LOGIN 
+module.exports.getUserByUsername = function (username, callback) {
+    var query = {username: usernmae};
+    User.findOne(query, callback);
+}
+
+module.exports.getUserById = function (id, callback) {
+    User.findById(id, callback);
+}
+
+
+module.exports.comparePassword= function (candidatePassword, hash, callback) {
+bcrypt.compare(candidatePassword, hash, function (err, isMatch){
+if (err) throw err;
+callback(null, isMatch);
+    }); 
 }
 

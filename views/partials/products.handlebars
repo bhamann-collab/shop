@@ -1,1 +1,12 @@
-<h1>Our Products</h1>
+<h1>Our Products</h1>4
+
+<div class="row">
+    <div class="col-md-12">
+        <ul>
+            {{#each itemsForSale}}
+                <li>{{this.dataValues.name}}</li>
+                <img class="img img-thumbnail" src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg"/> 
+            {{/each}}
+        </ul>
+    </div>
+</div>
