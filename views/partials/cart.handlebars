@@ -8,6 +8,8 @@
                     {{#each this.dataValues.items}}
                         <p>{{dataValues.saleItem.dataValues.name}}: ${{dataValues.saleItem.dataValues.price}}<span class="price"></span></p>
                     {{/each}}
+                    <hr>
+                    <p>Total <span class="price black"><b>${{getTotal this.dataValues.items}}</b></span></p>
                 </ul>
             {{/each}}
         {{/each}}
