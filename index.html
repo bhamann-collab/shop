@@ -17,10 +17,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar">
-         
-        <ul class="nav navbar-nav">
-          <button
+    
+    <div id="myDIV" class="header">
+      <aside>
+       <button
             onclick="document.getElementById('id01').style.display='block'"
             style="width: auto;"
           >
@@ -67,7 +67,7 @@
                 </label>
               </div>
 
-              <div class="container" style="background-color: #f1f1f1;">
+              <div class="container" style="background-color: skyblue">
                 <button
                   type="button"
                   onclick="document.getElementById('id01').style.display='none'"
@@ -81,31 +81,25 @@
           </div>
         </ul>
       </div>
-      <ul class="nav navbar-nav">
-      <a class="navbar-brand"
-        action=""
-        style="margin: auto; max-width: 400px;"
-      >
-        <input type="text" placeholder="Search.." name="search2" />
-        <button type="submit"><i class="fa fa-search"></i></button>
-     </a>
-     </ul>
-      <div class="input-container">
-        <i class="fa fa-user icon"></i>
-        <input
-          class="input-field"
-          type="text"
-          placeholder="create new user..."
-          name="usrnm"
-        />
-       
+      <div class="dropdown">
+        <button class="dropbtn">My Orders</button>
+        <div class="dropdown-content">
+          <a>Order Id:</a>
+          <a>Order Id:</a>
+          <a>Order Id:</a>
+        </div>
       </div>
-    </nav>
-
-    <div id="myDIV" class="header">
-      <h2 style="margin: 5px;">My shoe shopping list</h2>
-      <input type="text" id="myInput" placeholder="Add an item..." />
-      <span onclick="newElement()" class="addBtn">Add</span>
+      <div class="dropdown">
+        <button class="dropbtn">My Orders</button>
+        <div class="dropdown-content">
+          <a>Order Id:</a>
+          <a>Order Id:</a>
+          <a>Order Id:</a>
+        </div>
+      </div>
+    </aside>
+      <h2 style="margin: 3px;">My shoe shopping list</h2>
+     
      
     </div>
  
@@ -113,7 +107,7 @@
       <div class="item1">
        
        <div class="col-4">
-         <ul id="myUL"></ul>
+         
         Shoe 1<img class="img img-thumbnail" src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg"/> 
         
         Shoe 2<img class="img img-thumbnail" src="https://www.tenniswarehouse.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/a/aa8030-108-phsrh000-1000.1578879230.jpeg"/> 
@@ -139,7 +133,7 @@
         <hr>
         <p>Total <span class="price" style="color:black"><b>$</b></span></p>
         <form>
-        <input type="submit" value="Continue to checkout" class="btn" style="color:blue">
+          <a class="btn" href="index1.html"><p>continue to checkout</p></a>
         </form>
       </div>
     </div>
