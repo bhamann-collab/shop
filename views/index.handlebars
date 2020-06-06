@@ -1,63 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar">
-    <a class="navbar-brand">Shoes for you.</a>
-    </div>
-    <ul class="nav navbar-nav">
-        <button onclick="document.getElementById('id01').style.display='block'" style="width: auto;">
-            Login
-        </button>
+<button onclick="document.getElementById('id01').style.display='block'" class="log" style="width: auto;">
+    Login
+</button>
 
-        <div id="id01" class="modal">
-            <form class="modal-content animate" action="/action_page.php" method="post">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                        title="Close Modal">&times;</span>
+<div id="id01" class="modal">
+    <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required />
 
-                </div>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required />
 
-                <div class="container">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required />
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required />
-
-                    <button type="submit">Login</button>
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember" />
-                        Remember me
-                    </label>
-                </div>
-
-                <div class="container myContainer">
-                    <button
-                        type="button"
-                        onclick="document.getElementById('id01').style.display='none'"
-                        class="cancelbtn"
-                    >
-                        Cancel
-                    </button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
+            <button type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember" /> Remember
+                me
+            </label>
         </div>
-    </ul>
-    
-    <ul class="nav navbar-nav myNavbar2">
-        <a class="navbar-brand" action="">
-            <input type="text" placeholder="Search.." name="search2" />
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </a>
-    </ul>
-    <div class="input-container">
-        <i class="fa fa-user icon"></i>
-        <input class="input-field" type="text" placeholder="create new user..." name="usrnm" />
-    </div>
-</nav>
+
+        <div class="container" style="background-color: #f1f1f1;">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Cancel
+            </button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</div>
 
 <div id="myDIV" class="header">
-    <h2>My shoe shopping list</h2>
+    <h2 style="margin: 5px;">My shoe shopping list</h2>
     <input type="text" id="myInput" placeholder="Add an item..." />
-    <span onclick="newElement()" class="addBtn">Add</span>     
+    <span onclick="newElement()" class="addBtn">Add</span>
 </div>
 
 <div class="container">
@@ -83,7 +56,7 @@
                     <hr>
                     <p>Total <span class="price black"><b>$</b></span></p>
                     <form>
-                        <input type="submit" value="Continue to checkout" class="btn">
+                        <input type="submit" value="Continue to checkout" class="btn" style="color: blue;">
                     </form>
                 </div>
             </div>
