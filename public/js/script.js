@@ -20,16 +20,16 @@ for (i = 0; i < close.length; i++) {
 }
 
 // Add a "checked" symbol when clicking on a list item
-var list = document.querySelector("ul");
-list.addEventListener(
-  "click",
-  function (ev) {
-    if (ev.target.tagName === "LI") {
-      ev.target.classList.toggle("checked");
-    }
-  },
-  false
-);
+// var list = document.querySelector("ul");
+// list.addEventListener(
+//   "click",
+//   function (ev) {
+//     if (ev.target.tagName === "LI") {
+//       ev.target.classList.toggle("checked");
+//     }
+//   },
+//   false
+// );
 
 // Create a new list item when clicking on the "Add" button
 function newElement() {
@@ -59,6 +59,7 @@ function newElement() {
 }
 
 // Ajax post when user completes login form.
+<<<<<<< HEAD
 $(document).ready(function () {
   event.preventDefault();
 
@@ -132,5 +133,71 @@ $(document).ready(function () {
       });
   });
 })
+=======
+$(document).ready(function() {
 
 
+  //User clicks SUBMIT user details will be validated
+    $("#loginForm").on("submit", function(event) {
+        event.preventDefault();
+
+        var user = {
+            name: $("#name").val().trim(),
+            lastName: $("#lastName").val().trim(),
+            email: $("#email").val().trim(),
+            password: $("#password").val().trim(),
+        };
+        console.log(user);
+
+        //send post request
+        $.ajax("/api/users", {
+            type: "POST",
+            data: user
+        }).then(
+
+        function() {
+            console.log("created new user");
+            //reload current page with updated user list.
+            location.reload();
+        })
+    });
+
+
+// Ajax post when user deletes cart. 
+    $(".delete-cart").on("click", function(event) {
+
+  // Send the DELETE request.
+        $.ajax("api/saleItems/", {
+            type: "DELETE"
+        }).then(
+        function() {
+            console.log("deleted cart");
+      // Reload the page to get the updated list
+            location.reload();
+        });
+    });
+
+    // Ajax post when user deletes item from cart. 
+    $(".delete-itemCart").on("click", function(event) {
+        var id = $(this).data("id");
+
+        // Send the DELETE request.
+        $.ajax("/api/items/" + id, {
+            type: "DELETE"
+        }).then(
+        function() {
+            console.log("deleted item from cart", id);
+
+            // Reload the page to get the updated list
+            location.reload();
+        });
+    });
+});
+>>>>>>> 47ce39c0046e8812f7bf8b15a04e2f461993b870
+
+
+      // Reload the page to get the updated list
+      location.reload();
+    }
+  );
+});

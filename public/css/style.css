@@ -177,6 +177,13 @@ button {
   width: 100%;
 }
 
+.delete-itemCart {
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  margin:0px;
+}
+
 button:hover {
   opacity: 0.8;
 }
