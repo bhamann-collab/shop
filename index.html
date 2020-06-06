@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
+
+<head>
+    <meta charset="UTF-8">
     <title>Kicks United</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -16,177 +17,164 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
+    
     <div id="myDIV" class="header">
       <aside>
-        <button
-          onclick="document.getElementById('id01').style.display='block'"
-          style="width: auto;"
-        >
-          Login
-        </button>
-
-        <div id="id01" class="modal">
-          <form
-            class="modal-content animate"
-            action="/action_page.php"
-            method="post"
+       <button
+            onclick="document.getElementById('id01').style.display='block'"
+            style="width: auto;"
           >
-            <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input
-                type="text"
-                placeholder="Enter Username"
-                name="uname"
-                required
-              />
+            Login
+          </button>
 
-              <label for="psw"><b>Password</b></label>
-              <input
-                type="password"
-                placeholder="Enter Password"
-                name="psw"
-                required
-              />
+          <div id="id01" class="modal">
+            <form
+              class="modal-content animate"
+              action="/action_page.php"
+              method="post"
+            >
+              <div class="imgcontainer">
+                <span
+                  onclick="document.getElementById('id01').style.display='none'"
+                  class="close"
+                  title="Close Modal"
+                  >&times;</span
+                >
+               
+              </div>
 
-              <button type="submit">Login</button>
-              <label>
-                <input type="checkbox" checked="checked" name="remember" />
-                Remember me
-              </label>
-            </div>
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input
+                  type="text"
+                  placeholder="Enter Username"
+                  name="uname"
+                  required
+                />
 
-            <div class="container" style="background-color: skyblue;">
-              <button
-                type="button"
-                onclick="document.getElementById('id01').style.display='none'"
-                class="cancelbtn"
-              >
-                Cancel
-              </button>
-              <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-          </form>
-        </div>
+                <label for="psw"><b>Password</b></label>
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  name="psw"
+                  required
+                />
 
-        <div class="dropdown">
-          <button class="dropbtn">My Orders</button>
-          <div class="dropdown-content">
-            <a>Order Id:</a>
-            <a>Order Id:</a>
-            <a>Order Id:</a>
-            <a>Order Id:</a>
+                <button type="submit">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember" />
+                  Remember me
+                </label>
+              </div>
+
+              <div class="container" style="background-color: skyblue">
+                <button
+                  type="button"
+                  onclick="document.getElementById('id01').style.display='none'"
+                  class="cancelbtn"
+                >
+                  Cancel
+                </button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              
+            </form>
           </div>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">My Orders</button>
+        <div class="dropdown-content">
+          <a>Order Id:</a>
+          <a>Order Id:</a>
+          <a>Order Id:</a>
+          <a>Order Id:</a>
         </div>
-        <div class="dropdown">
-          <button class="dropbtn">My Orders</button>
-          <div class="dropdown-content">
-            <a>Order Id:</a>
-            <a>Order Id:</a>
-            <a>Order Id:</a>
-            <a>Order Id:</a>
-          </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">My Orders</button>
+        <div class="dropdown-content">
+          <a>Order Id:</a>
+          <a>Order Id:</a>
+          <a>Order Id:</a>
+          <a>Order Id:</a>
         </div>
-        <div class="dropdown">
-          <button class="dropbtn">My Orders</button>
-          <div class="dropdown-content">
-            <a>Order Id:</a>
-            <a>Order Id:</a>
-            <a>Order Id:</a>
-            <a>Order Id:</a>
-          </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">My Orders</button>
+        <div class="dropdown-content">
+          <a>Order Id:</a>
+          <a>Order Id:</a>
+          <a>Order Id:</a>
+          <a>Order Id:</a>
         </div>
-      </aside>
+      </div>
+    </aside>
       <h2 style="margin: 3px;">My shoe shopping list</h2>
+     
+     
     </div>
-
+ 
     <div class="grid-container">
       <div class="item1">
-        <div class="col-4">
-          Shoe 1<img
-            class="img img-thumbnail"
-            src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg"
-          />
+       
+       <div class="col-4">
+         
+        Shoe 1<img class="img img-thumbnail" src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg"/> 
+        
+        Shoe 2<img class="img img-thumbnail" src="https://www.tenniswarehouse.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/a/aa8030-108-phsrh000-1000.1578879230.jpeg"/> 
 
-          Shoe 2<img
-            class="img img-thumbnail"
-            src="https://www.tenniswarehouse.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/a/aa8030-108-phsrh000-1000.1578879230.jpeg"
-          />
+        Shoe 3<img class="img img-thumbnail" src="https://media.hypedc.com/media/catalog/product/cache/1/image/1500x/9df78eab33525d08d6e5fb8d27136e95/a/r/ar9293-001_blk_01.jpg"/>   
 
-          Shoe 3<img
-            class="img img-thumbnail"
-            src="https://media.hypedc.com/media/catalog/product/cache/1/image/1500x/9df78eab33525d08d6e5fb8d27136e95/a/r/ar9293-001_blk_01.jpg"
-          />
+        Shoe 4<img class="img img-thumbnail" src="https://images.boardriders.com/globalGrey/dcshoes-products/all/default/large/adys100476_legacyog,p_mlt_frt2.jpg"/>  
 
-          Shoe 4<img
-            class="img img-thumbnail"
-            src="https://images.boardriders.com/globalGrey/dcshoes-products/all/default/large/adys100476_legacyog,p_mlt_frt2.jpg"
-          />
-        </div>
       </div>
+</div>
 
-      <div class="item3">
-        <div class="container">
-          <h4>
-            Cart
-            <span class="price" style="color: red;">
-              <i class="fa fa-shopping-cart"></i>
-              <b></b>
-            </span>
-          </h4>
-          <p><span class="price">$...</span></p>
-          <p><span class="price">$...</span></p>
-          <p><span class="price">$...</span></p>
-          <p><span class="price">$...</span></p>
-          <hr />
-          <p>
-            Total <span class="price" style="color: black;"><b>$</b></span>
-          </p>
-          <form>
-            <a class="btn" href="index1.html"><p>proceed to checkout</p></a>
-          </form>
-          <div class="dropdown">
-            <button class="dropbtn">
-              Search<i class="fa fa-search"></i>
-              <div class="w3-padding w3-xlarge w3-text-orange"></div>
-            </button>
-            <div id="myDropdown" class="dropdown-content">
-              <a
-                href="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg"
-                >Shoe 1</a
-              >
-              <a
-                href="https://www.tenniswarehouse.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/a/aa8030-108-phsrh000-1000.1578879230.jpeg"
-                >Shoe 2</a
-              >
-              <a
-                href="https://media.hypedc.com/media/catalog/product/cache/1/image/1500x/9df78eab33525d08d6e5fb8d27136e95/a/r/ar9293-001_blk_01.jpg"
-                >Shoe 3</a
-              >
-              <a
-                href="https://images.boardriders.com/globalGrey/dcshoes-products/all/default/large/adys100476_legacyog,p_mlt_frt2.jpg"
-                >Shoe 4</a
-              >
-              <a
-                href="https://i.pinimg.com/originals/b7/a6/76/b7a676d97d2cb1057158a228b2a724cf.jpg"
-                >Shoe 5</a
-              >
-              <a
-                href="https://images.puma.net/images/352634/64/sv01/fnd/AUS/w/1000/h/1000/bg/255,255,255"
-                >Shoe 6</a
-              >
-              <a
-                href="https://i.ebayimg.com/images/g/tJYAAOSwX8Jd8f1z/s-l300.jpg"
-                >Shoe 7</a
-              >
-            </div>
+      <div class="item3"><div class="container">
+        <h4>Cart
+          <span class="price" style="color:red">
+            <i class="fa fa-shopping-cart"></i>
+            <b></b>
+          </span>
+        </h4>
+        <p><span class="price">$...</span></p>
+        <p><span class="price">$...</span></p>
+        <p><span class="price">$...</span></p>
+        <p><span class="price">$...</span></p>
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>$</b></span></p>
+        <form>
+          <a class="btn" href="index1.html"><p> to checkout</p></a>
+        </form>
+         <div class="dropdown">
+          <button class="dropbtn">Search<i class="fa fa-search"></i> 
+          <div class="w3-padding w3-xlarge w3-text-orange">              
+                        
+            </div>    
+             </button>             
+          <div id="myDropdown" class="dropdown-content">              
+            <a href="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg">Shoe 1</a>
+            <a href="https://www.tenniswarehouse.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/a/aa8030-108-phsrh000-1000.1578879230.jpeg">Shoe 2</a>
+            <a href="https://media.hypedc.com/media/catalog/product/cache/1/image/1500x/9df78eab33525d08d6e5fb8d27136e95/a/r/ar9293-001_blk_01.jpg">Shoe 3</a>
+            <a href="https://images.boardriders.com/globalGrey/dcshoes-products/all/default/large/adys100476_legacyog,p_mlt_frt2.jpg">Shoe 4</a>
+            <a href="https://i.pinimg.com/originals/b7/a6/76/b7a676d97d2cb1057158a228b2a724cf.jpg">Shoe 5</a>
+            <a href="https://images.puma.net/images/352634/64/sv01/fnd/AUS/w/1000/h/1000/bg/255,255,255">Shoe 6</a>
+            <a href="https://i.ebayimg.com/images/g/tJYAAOSwX8Jd8f1z/s-l300.jpg">Shoe 7</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="item4"></div>
-    <div class="item6"></div>
+  </div>
+      <div class="item4">        
+        
+      </div>
+      <div class="item6">
+       
+      </div>
+    
 
     <script>
+        
       // Get the modal
       var modal = document.getElementById("id01");
 
@@ -196,7 +184,10 @@
           modal.style.display = "none";
         }
       };
+    
     </script>
-    <link rel="stylesheet" href="style.css" /><link />
-  </body>
+<link rel="stylesheet" href="style.css" /><link />
+
+</body>
+
 </html>
