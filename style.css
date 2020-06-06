@@ -69,12 +69,6 @@ ul li.checked::before {
   top: 0;
   padding: 12px 16px 12px 16px;
 }
-
-.close:hover {
-  background-color: #f44336;
-  color: white;
-}
-
 /* Style the header */
 .header {
   background-color: #f44336;
@@ -114,6 +108,11 @@ body {
   padding: 20px 0;
   font-size: 30px;
 }
+/* password top */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 input[type="text"],
 input[type="password"] {
   width: 50%;
@@ -145,12 +144,10 @@ button:hover {
   padding: 10px 18px;
   background-color: #f44336;
 }
-.icon {
-  padding: 10px;
-  background: dodgerblue;
-  color: white;
-  min-width: 50px;
+.imgcontainer {
   text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
 }
 
 .container {
@@ -161,9 +158,7 @@ span.psw {
   float: right;
   padding-top: 16px;
 }
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -182,7 +177,7 @@ body {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 5% auto 10% auto; /* 5% from the top, 10% from the bottom and centered */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
@@ -237,9 +232,6 @@ body {
     width: 100%;
   }
 }
-#myInput {
-  color: black;
-}
 aside {
   text-align: left;
 }
@@ -250,6 +242,7 @@ h2 {
 label {
   color: black;
 }
+/* my orders drop down button */
 .dropbtn {
   background-color: skyblue;
   color: white;
@@ -292,6 +285,7 @@ label {
 .dropdown:hover .dropbtn {
   background-color: skyblue;
 }
+/* search and proceed to checkout */
 .btn {
   background-color: #2196f3;
   color: white;
