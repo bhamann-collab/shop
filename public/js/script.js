@@ -20,16 +20,16 @@ for (i = 0; i < close.length; i++) {
 }
 
 // Add a "checked" symbol when clicking on a list item
-var list = document.querySelector("ul");
-list.addEventListener(
-  "click",
-  function (ev) {
-    if (ev.target.tagName === "LI") {
-      ev.target.classList.toggle("checked");
-    }
-  },
-  false
-);
+// var list = document.querySelector("ul");
+// list.addEventListener(
+//   "click",
+//   function (ev) {
+//     if (ev.target.tagName === "LI") {
+//       ev.target.classList.toggle("checked");
+//     }
+//   },
+//   false
+// );
 
 // Create a new list item when clicking on the "Add" button
 function newElement() {
@@ -60,10 +60,10 @@ function newElement() {
 
 // Ajax post when user completes login form.
 $(document).ready(function() {
-  event.preventDefault();
+
 
   //User clicks SUBMIT user details will be validated
-    loginForm.on("submit", function(event) {
+    $("#loginForm").on("submit", function(event) {
         event.preventDefault();
 
         var user = {
@@ -107,7 +107,7 @@ $(document).ready(function() {
         var id = $(this).data("id");
 
         // Send the DELETE request.
-        $.ajax("/api/saleItems" + id, {
+        $.ajax("/api/items/" + id, {
             type: "DELETE"
         }).then(
         function() {
@@ -117,6 +117,7 @@ $(document).ready(function() {
             location.reload();
         });
     });
-})
+});
+
 
 
