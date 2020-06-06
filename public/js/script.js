@@ -120,7 +120,3 @@ $(".delete-itemCart").on("click", function(event) {
     }
   );
 });
-<<<<<<< HEAD
-=======
-
->>>>>>> ac7af507d456909b8fa3a7feae116281df1e27a0
