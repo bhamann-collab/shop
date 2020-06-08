@@ -1,9 +1,11 @@
 <button onclick="document.getElementById('id01').style.display='block'" class="log" style="width: auto;">
     Login
 </button>
-
-<div id="id01" class="modal">
-    <form class="modal-content animate" action="/action_page.php" method="post">
+<button onclick="document.getElementById('id03').style.display='block'" class="log" style="width: auto;">
+    Sign Up
+</button>
+<div id="id01" class="modal ">
+    <form class="modal-content animate container" action="/action_page.php" method="post">
         <div class="imgcontainer">
             <label for="uname"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="uname" required />
@@ -18,7 +20,7 @@
             </label>
         </div>
 
-        <div class="container" style="background-color: #f1f1f1;">
+        <div style="background-color: #f1f1f1;">
             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
                 Cancel
             </button>
@@ -54,9 +56,12 @@
 
                     <hr>
                     <p>Total <span class="price black"><b>$</b></span></p>
-                    <form>
-                        <input type="submit" value="Continue to checkout" class="btn" style="color: blue;">
-                    </form>
+                    <button onclick="document.getElementById('id02').style.display='block'" class="log" style="width: auto;">
+    Continue to checkout
+</button>
+
+<div id="id02" class="modal">
+</div>
            
             </div>
         </div>
