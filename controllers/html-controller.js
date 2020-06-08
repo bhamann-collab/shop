@@ -10,28 +10,52 @@ console.log(db.users)
 
 module.exports = function (app) {
     app.get("/", async function (req, res) {
+if (req.user) {
+    myData.itemsForSale = await db.saleItems.findAll()
 
-        //two pieces of data to be sent to the root file
-        
-        myData.itemsForSale = await db.saleItems.findAll()
-
-        myData.user = await db.users.findAll({
-            //Test case, using user id: 2 for now
-            where: {id: 2 },
+    myData.user = await db.users.findAll({
+        //Test case, using user id: 2 for now
+        where: {id: req.user.id },
+        include: [{
+            model: db.orders,
+            //Test case, using user id: 1 for now
+            where: {id: 11},
             include: [{
-                model: db.orders,
-                //Test case, using user id: 1 for now
-                where: {id: 11},
+                model: db.items,
+                where: {},
                 include: [{
-                    model: db.items,
-                    where: {},
-                    include: [{
-                        model: db.saleItems,
-                        where:{}
-                    }]
+                    model: db.saleItems,
+                    where:{}
                 }]
             }]
-        })
+        }]
+    })
+} else {
+    myData.itemsForSale = await db.saleItems.findAll()
+
+    myData.user = await db.users.findAll({
+        //Test case, using user id: 2 for now
+        where: {id: -2 },
+        include: [{
+            model: db.orders,
+            //Test case, using user id: 1 for now
+            where: {id: 11},
+            include: [{
+                model: db.items,
+                where: {},
+                include: [{
+                    model: db.saleItems,
+                    where:{}
+                }]
+            }]
+        }]
+    })
+}
+        //two pieces of data to be sent to the root file
+        
+       
+
+        
         res.render("index", myData);
     });
 };

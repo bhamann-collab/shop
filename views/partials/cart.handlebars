@@ -1,5 +1,6 @@
 <div class="row">
     <div class="col-md-12">
+        {{#if user}}
         {{#each user}}
         <h1>Welcome {{this.dataValues.name}}</h1>
         {{#each this.dataValues.orders}}
@@ -25,6 +26,9 @@
         </div>
         {{/each}}
         {{/each}}
+        {{else}}
+        <h3>Please sign in to view your cart</h3>
+        {{/if}}
     </div>
 </div>
 

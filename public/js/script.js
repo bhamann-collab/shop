@@ -61,83 +61,73 @@
 // Ajax post when user completes login form.
 $(document).ready(function () {
 
-//   //User clicks SUBMIT user details will be validated
-//   loginForm.on("submit", function (event) {
-//     event.preventDefault();
+  //User clicks SUBMIT user details will be validated
+  $("#loginF").on("submit", function (event) {
+    event.preventDefault();
 
-//     var user = {
-//       name: $("#name").val().trim(),
-//       lastName: $("#lastName").val().trim(),
-//       email: $("#email").val().trim(),
-//       password: $("#password").val().trim(),
-//     };
-//     console.log(user);
+    let user = {
+      username: $("#email").val().trim(),
+      password: $("#psw").val().trim(),
+    };
+    console.log(user);
 
-//     //send post request
-//     $.ajax("/api/users", {
-//       type: "POST",
-//       data: user
-//     }).then(
-
-//       function () {
-//         console.log("created new user");
-//         //reload current page with updated user list.
-//         location.reload();
-//       })
-//   });
-
-  
-  // Ajax post when user adds item to cart. 
-  $(".addtocart").on("click", function (event) {
-    var id = $(this).parent().data("product");
-    console.log(id);
-
-    // Send the POST request.
-    $.ajax("/api/saleItems/" + id, {
-      type: "POST"
-    }).then(
-      function () {
-        console.log("added item to cart", id);
-        // Reload the page to get the updated list
-        location.reload();
+    //send post request
+    $.post("/api/users", {
+      email: user.username,
+      password: user.password
+    }).then(function () {
+        console.log("logged in");
+        window.location.replace("/");
+      })
+      .catch(function (err) {
+        console.log(err);
       });
+    });
+
+    // Ajax post when user adds item to cart. 
+    $(".addtocart").on("click", function (event) {
+      var id = $(this).parent().data("product");
+      console.log(id);
+
+      // Send the POST request.
+      $.ajax("/api/saleItems/" + id, {
+        type: "POST"
+      }).then(
+        function () {
+          console.log("added item to cart", id);
+          // Reload the page to get the updated list
+          location.reload();
+        });
+    });
+
+
+    // Ajax post when user deletes cart. 
+    $(".delete-cart").on("click", function (event) {
+
+      // Send the DELETE request.
+      $.ajax("api/saleItems/", {
+        type: "DELETE"
+      }).then(
+        function () {
+          console.log("deleted cart");
+          // Reload the page to get the updated list
+          location.reload();
+        });
+    });
+
+    // Ajax post when user deletes item from cart. 
+    $(".delete-itemCart").on("click", function (event) {
+      var id = $(this).data("id");
+
+      // Send the DELETE request.
+      $.ajax("/api/items/" + id, {
+        type: "DELETE"
+      }).then(
+        function () {
+          console.log("deleted item from cart", id);
+
+          // Reload the page to get the updated list
+          location.reload();
+        });
+    });
   });
-
-
-  // Ajax post when user deletes cart. 
-  $(".delete-cart").on("click", function (event) {
-
-    // Send the DELETE request.
-    $.ajax("api/saleItems/", {
-      type: "DELETE"
-    }).then(
-      function () {
-        console.log("deleted cart");
-        // Reload the page to get the updated list
-        location.reload();
-      });
-  });
-
-  // Ajax post when user deletes item from cart. 
-  $(".delete-itemCart").on("click", function (event) {
-    var id = $(this).data("id");
-
-    // Send the DELETE request.
-    $.ajax("/api/items/" + id, {
-      type: "DELETE"
-    }).then(
-      function () {
-        console.log("deleted item from cart", id);
-
-        // Reload the page to get the updated list
-        location.reload();
-      });
-  });
-})
-
-
-//       // Reload the page to get the updated list
-//       location.reload();
-//     }
-//   );
-// });

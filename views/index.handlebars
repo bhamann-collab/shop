@@ -1,17 +1,22 @@
+{{#if user}}
+<button class="log" style="width: auto;">
+    Sign Out
+</button>
+{{else}}
 <button onclick="document.getElementById('id01').style.display='block'" class="log" style="width: auto;">
     Login
 </button>
 <button onclick="document.getElementById('id03').style.display='block'" class="log" style="width: auto;">
     Sign Up
 </button>
+{{/if}}
 <div id="id01" class="modal ">
-    <form class="modal-content animate container" action="/action_page.php" method="post">
+    <form id="loginF" class="modal-content animate container">
         <div class="imgcontainer">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required />
+            <label for="uname"><b>Enter your details below</b></label>
+            <input type="text" placeholder="Email Address" id="email" required />
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required />
+            <input type="password" placeholder="Enter Password" id="psw" required />
 
             <button type="submit">Login</button>
             <label>
@@ -55,11 +60,12 @@
                     </h4>
 
                     <hr>
+                    {{#if user}}
                     <p>Total <span class="price black"><b>$</b></span></p>
                     <button onclick="document.getElementById('id02').style.display='block'" class="log" style="width: auto;">
     Continue to checkout
 </button>
-
+{{/if}}
 <div id="id02" class="modal">
 </div>
            
@@ -69,6 +75,6 @@
 
 </div>
 
-
+<script src="/js/script.js"></script>
 
 

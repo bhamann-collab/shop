@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const passport = require('passport');
+const passport = require('../config/passport');
 
 
 //Load User model 
@@ -12,6 +12,7 @@ const passport = require('passport');
 // router.get('/', forwardAuthenticated, (req, res) => res.render('/'));
 
 router.post('/api/users', passport.authenticate("local"), function(req, res) {//when route called it uses the passport.authenticate middleware before running the callback function
+  console.log("Has been authenticated next step");
   res.json(req.user);//returns the user from the authenticate function
 });
 

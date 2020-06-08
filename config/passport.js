@@ -1,55 +1,35 @@
-const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require ("bcryptjs")
+let passport = require("passport");//imports passport
+let LocalStrategy = require("passport-local").Strategy;//assigns a authentication 'strategy' to this class variable
+let db = require("../models");//import databases
 
-const db = require("../models");
-
-// Load User Model
-const User = require('../models/users.js');
-
-//using local strategy (email and password);
-module.exports = function (passport) {
-  passport.use(
-  new LocalStrategy ({
-      usernameField: "email"
+passport.use(new LocalStrategy(//new instance of a passport strategy
+    {
+        usernameField: "email" //configured to use username
     },
-    function(email, password, done) {
-         
-      // When a user tries to sign in this code runs
-      db.User.findOne({
-          where: {
-            email: email
-          }
+    function(usr, password, done) { //when signing in this code runs
+        db.users.findOne({
+            where: {
+                email: usr//finds user in database
+            }
         }).then(function(dbUser) {
-
-          //IF invalid Email or no user on databse with that email.
-          if (!dbUser) {
-              return done(null, false, {
-                message: "Incorrect email."
-              });
+            if (!dbUser) {//if it cant find user then it returns below
+                return done(null, false);
             }
-          //IF invalid Password 
-            else if (!dbUser.validPassword(password)) {
-              return done(null, false, {
-                message: "Incorrect password."
-              });
+            else if (!dbUser.validPassword(password)) { //if password doesn't match then responds below
+            console.log("invalid password")  ; 
+            return done(null, false);
             }
+            return done(null, dbUser); //if no errors occur it completes
+        });
+    }
+));
 
-            return done(null, dbUser);
-          });
-        }
-      ));
-
-
-// sequelize serialise and deserialise user data.
 passport.serializeUser(function(user, cb) {
-  cb(null, user);
+    cb(null, user);//serialized the user to transfer across http requests
 });
 
 passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
+    cb(null, obj);//same as above only reverses serialisation
 });
 
-// Exporting our configured passport
-module.exports = passport;
-
-};
+module.exports = passport; //exports it
