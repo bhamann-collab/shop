@@ -4,10 +4,19 @@
         <h1>Welcome {{this.dataValues.name}}</h1>
         {{#each this.dataValues.orders}}
         <h3>Order Id: {{this.dataValues.order_code}}</h3>
-        <div>
+            <div class="dropdown">
+        <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">See other orders</button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <ul>
+              <li>Order Id:</li>
+              <li>Order Id:</li>
+              <li>Order Id:</li>
+          </ul>
+        </div>
+      </div>
+        <div class="topMarg">
             {{#each this.dataValues.items}}
             <ul>
-
                 <p><button data-id="{{dataValues.id}}" type="button" class="btn btn-danger delete-itemCart">X</button>
                     {{dataValues.saleItem.dataValues.name}}: ${{dataValues.saleItem.dataValues.price}}<span
                         class="price"></span></p>
