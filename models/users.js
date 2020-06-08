@@ -33,6 +33,11 @@ Users.prototype.validPassword = function(password) {
     Users.addHook("beforeCreate", function(users) {
     users.password = bcrypt.hashSync(users.password, bcrypt.genSaltSync(10), null);
     });
+        Users.associate = models => {
+        Users.hasMany(models.orders, {
+            onDelete: "cascade"
+        })
+    }
 
 return Users;
 };

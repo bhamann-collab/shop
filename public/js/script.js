@@ -1,23 +1,23 @@
-// Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
+// // Create a "close" button and append it to each list item
+// var myNodelist = document.getElementsByTagName("LI");
+// var i;
+// for (i = 0; i < myNodelist.length; i++) {
+//   var span = document.createElement("SPAN");
+//   var txt = document.createTextNode("\u00D7");
+//   span.className = "close";
+//   span.appendChild(txt);
+//   myNodelist[i].appendChild(span);
+// }
 
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function () {
-    var div = this.parentElement;
-    div.style.display = "none";
-  };
-}
+// // Click on a close button to hide the current list item
+// var close = document.getElementsByClassName("close");
+// var i;
+// for (i = 0; i < close.length; i++) {
+//   close[i].onclick = function () {
+//     var div = this.parentElement;
+//     div.style.display = "none";
+//   };
+// }
 
 // Add a "checked" symbol when clicking on a list item
 // var list = document.querySelector("ul");
@@ -32,71 +32,73 @@ for (i = 0; i < close.length; i++) {
 // );
 
 // Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === "") {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
+// function newElement() {
+//   var li = document.createElement("li");
+//   var inputValue = document.getElementById("myInput").value;
+//   var t = document.createTextNode(inputValue);
+//   li.appendChild(t);
+//   if (inputValue === "") {
+//     alert("You must write something!");
+//   } else {
+//     document.getElementById("myUL").appendChild(li);
+//   }
+//   document.getElementById("myInput").value = "";
 
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
+//   var span = document.createElement("SPAN");
+//   var txt = document.createTextNode("\u00D7");
+//   span.className = "close";
+//   span.appendChild(txt);
+//   li.appendChild(span);
 
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
-      var div = this.parentElement;
-      div.style.display = "none";
-    };
-  }
-}
+//   for (i = 0; i < close.length; i++) {
+//     close[i].onclick = function () {
+//       var div = this.parentElement;
+//       div.style.display = "none";
+//     };
+//   }
+// }
 
 // Ajax post when user completes login form.
 $(document).ready(function () {
-  event.preventDefault();
 
-  //User clicks SUBMIT user details will be validated
-  loginForm.on("submit", function (event) {
-    event.preventDefault();
+//   //User clicks SUBMIT user details will be validated
+//   loginForm.on("submit", function (event) {
+//     event.preventDefault();
 
-    var user = {
-      name: $("#name").val().trim(),
-      lastName: $("#lastName").val().trim(),
-      email: $("#email").val().trim(),
-      password: $("#password").val().trim(),
-    };
-    console.log(user);
+//     var user = {
+//       name: $("#name").val().trim(),
+//       lastName: $("#lastName").val().trim(),
+//       email: $("#email").val().trim(),
+//       password: $("#password").val().trim(),
+//     };
+//     console.log(user);
 
-    //send post request
-    $.ajax("/api/users", {
-      type: "POST",
-      data: user
-    }).then(
+//     //send post request
+//     $.ajax("/api/users", {
+//       type: "POST",
+//       data: user
+//     }).then(
 
-      function () {
-        console.log("created new user");
-        //reload current page with updated user list.
-        location.reload();
-      })
-  });
+//       function () {
+//         console.log("created new user");
+//         //reload current page with updated user list.
+//         location.reload();
+//       })
+//   });
 
   
-  // Ajax post when user updates an item 
-  $(".update-item").on("click", function (event) {
-    let id = $(this).data("id");
+  // Ajax post when user adds item to cart. 
+  $(".addtocart").on("click", function (event) {
+    var id = $(this).parent().data("product");
+    console.log(id);
 
-    $.ajax("api/items" + id, {
-      type: "PUT"
+    // Send the POST request.
+    $.ajax("/api/saleItems/" + id, {
+      type: "POST"
     }).then(
       function () {
-        console.log("item updated", id);
+        console.log("added item to cart", id);
+        // Reload the page to get the updated list
         location.reload();
       });
   });
@@ -121,7 +123,7 @@ $(document).ready(function () {
     var id = $(this).data("id");
 
     // Send the DELETE request.
-    $.ajax("/api/saleItems" + id, {
+    $.ajax("/api/items/" + id, {
       type: "DELETE"
     }).then(
       function () {

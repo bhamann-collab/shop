@@ -27,7 +27,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-app.use(require('./controllers/user-controller'))
+//app.use(require('./controllers/user-controller'))
 app.use(require('./controllers/orders-controller'))
 app.use(require('./controllers/saleitems-controller'))
 app.use(require('./controllers/items-controller'))
