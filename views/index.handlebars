@@ -1,17 +1,80 @@
-<div class="container text-center">
+{{#if user}}
+<button class="log" style="width: auto;">
+    Sign Out
+</button>
+{{else}}
+<button onclick="document.getElementById('id01').style.display='block'" class="log" style="width: auto;">
+    Login
+</button>
+<button onclick="document.getElementById('id03').style.display='block'" class="log" style="width: auto;">
+    Sign Up
+</button>
+{{/if}}
+<div id="id01" class="modal ">
+    <form id="loginF" class="modal-content animate container">
+        <div class="imgcontainer">
+            <label for="uname"><b>Enter your details below</b></label>
+            <input type="text" placeholder="Email Address" id="email" required />
 
-    <div class="row">
-        <div class="col-md-6 text-center">
-            <h3>SHOP</h3>
-            <ul class=>
-                {{#each}}
-                <li>
-                    {{/each}}
-                </li>
-            </ul>
+            <input type="password" placeholder="Enter Password" id="psw" required />
+
+            <button type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember" /> Remember
+                me
+            </label>
         </div>
 
+        <div style="background-color: #f1f1f1;">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Cancel
+            </button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</div>
 
+<div id="myDIV" class="header">
+    <h1 style="font-size: 6vw; margin: 5px;">Kicks United</h1>
+    
+</div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="item1">
+                <ul id="myUL"></ul>
+                {{> products}}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="item3">
 
+                    <h4>
+                        Cart
+                        <span class="price red">
+                            <i class="fa fa-shopping-cart"></i>
+                            <b></b>
+                        </span>
+                        {{> cart}}
+                    </h4>
+
+                    <hr>
+                    {{#if user}}
+                    <p>Total <span class="price black"><b>$</b></span></p>
+                    <button onclick="document.getElementById('id02').style.display='block'" class="log" style="width: auto;">
+    Continue to checkout
+</button>
+{{/if}}
+<div id="id02" class="modal">
+</div>
+           
+            </div>
+        </div>
     </div>
+
+</div>
+
+<script src="/js/script.js"></script>
+
+

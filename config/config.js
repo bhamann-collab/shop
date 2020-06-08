@@ -24,5 +24,6 @@ module.exports = {
           "host": process.env.DBHOST,
             "port": 3306,
               "dialect": "mysql"
-  }
+  },
+
 }

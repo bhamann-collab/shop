@@ -2,82 +2,46 @@
 
 // Dependencies
 // =============================================================
+let session = require("express-session"); //Imports express session package
+let passport = require("./config/passport"); //Imports the passport script
+
 var express = require("express");
 require("dotenv").config();
 // Sets up the Express App
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
-
+//let db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory to be served`
-app.use(express.static("app/public"));
+app.use(express.static("./public"));
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true}));//creates a login session and stores the state in a cookie
+app.use(passport.initialize());
+app.use(passport.session());
 
-
-
-
-// Controllers
-// =============================================================
-// require("./controllers/saleitems-controller.js")(app);
-
-//--------------Just a test for handlebars----------
 //Sets up handlebars
-// let exphbs = require("express-handlebars");
-// app.engine("handlebars", exphbs({
-//     defaultLayout: "main",
-//     extname: "handlebars"
-// }));
-
-// app.set("view engine", "handlebars");
-
-// app.get("/", function(req, res) {
-//   res.render("index", {
-//     foods: "lunches",
-//     eater: "david"
-//   });
-// });
+let exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({
+    defaultLayout: "main",
+    extname: "handlebars"
+}));
+app.set("view engine", "handlebars");
 
 
-// // Here we introduce HTML routing to serve different HTML files
-// require("./app/routes/html-routes.js")(app);
-
-// Starts the server to begin listening
+// Routes
 // =============================================================
+app.use(require('./controllers/user-controller'))
+app.use(require('./controllers/orders-controller'))
+app.use(require('./controllers/saleitems-controller'))
+app.use(require('./controllers/items-controller'))
+require('./controllers/html-controller')(app)
+// =============================================================
+
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
 
 
-//----------------BELOW IS A TEST TO ENSURE ENV VARS ARE WORKING AND CONNECTION TO DB CAN BE ESTABLISHED----------------------------
-
-// // Dependencies
-// var Sequelize = require("sequelize");
-// console.log(`DB Name - ${process.env.DBNAME} DB User - ${process.env.DBUSERNAME} DB Password - ${process.env.DBPASSWORD} DB Host - ${process.env.DBHOST}`);
-
-
-// // Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
-// var sequelize = new Sequelize(process.env.DBNAME, process.env.DBUSERNAME, process.env.DBPASSWORD, {
-//   host: process.env.DBHOST,
-//   port: 3306,
-//   dialect: "mysql",
-//   pool: {
-//     max: 5,
-//     min: 0,
-//     idle: 10000
-//   }
-// });
-// authSQL();
-// async function authSQL () {
-// try {
-//   await sequelize.authenticate();
-//   console.log('Connection has been established successfully.');
-// } catch (error) {
-//   console.error('Unable to connect to the database:', error);
-// }
-// }
-
-// // // Exports the connection for other files to use
-// // module.exports = sequelize;

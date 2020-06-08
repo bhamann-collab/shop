@@ -1,8 +1,21 @@
 module.exports = function(sequelize, DataTypes) {
-  var SaleItems = sequelize.define("items_for_sale", {
-      item: DataTypes.STRING,
-      cart: DataTypes.BOOLEAN
-});
+    const SaleItems = sequelize.define("saleItems", {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        price: {
+            type: DataTypes.DOUBLE,
+            allowNull: false
+        }
 
-return SaleItems;
+    })
+  
+    SaleItems.associate = models => {
+        SaleItems.hasMany(models.items)
+    }
+
+  SaleItems.sync();
+
+  return SaleItems
 }
