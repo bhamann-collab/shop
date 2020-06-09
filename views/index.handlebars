@@ -10,6 +10,31 @@
     Sign Up
 </button>
 {{/if}}
+<div id="id03" class="modal ">
+    <form id="signupF" class="modal-content animate container">
+        <div class="imgcontainer">
+            <label for="uname"><b>Enter your details below</b></label>
+            <input type="text" placeholder="First Name" id="fnameSU" required />
+            <input type="text" placeholder="Last Name" id="lnameSU" required />
+            <input type="text" placeholder="Email Address" id="emailSu" required />
+            <input type="password" placeholder="Enter Password" id="pswSU" required />
+
+            <button type="submit">Sign Up</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember" /> Remember
+                me
+            </label>
+        </div>
+
+        <div style="background-color: #f1f1f1;">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Cancel
+            </button>
+        </div>
+    </form>
+</div>
+
+
 <div id="id01" class="modal ">
     <form id="loginF" class="modal-content animate container">
         <div class="imgcontainer">
@@ -75,6 +100,5 @@
 
 </div>
 
-<script src="/js/script.js"></script>
 
 
