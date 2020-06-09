@@ -83,7 +83,7 @@ $(document).ready(function () {
       function () {
         console.log("created new user");
         //reload current page with updated user list.
-        location.reload();
+        // location.reload();
       })
   });
 
@@ -97,7 +97,7 @@ $(document).ready(function () {
     }).then(
       function () {
         console.log("item updated", id);
-        location.reload();
+        // location.reload();
       });
   });
 
@@ -112,7 +112,7 @@ $(document).ready(function () {
       function () {
         console.log("deleted cart");
         // Reload the page to get the updated list
-        location.reload();
+        // location.reload();
       });
   });
 

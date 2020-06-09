@@ -1,12 +1,31 @@
-<h1>Our Products</h1>4
+<h1>Our Products</h1>
 
 <div class="row">
-    <div class="col-md-12">
+    
         <ul>
+            {{#if user}}
             {{#each itemsForSale}}
-                <li>{{this.dataValues.name}}</li>
-                <img class="img img-thumbnail" src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg"/> 
+<div class="col-md-6">
+            <div class="product" data-product="{{this.dataValues.id}}">
+                <li>{{this.dataValues.name}} - ${{this.dataValues.price}}</li>
+                <img class="img img-thumbnail"
+                    src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg" />
+                <button class="addtocart">Add to Cart</button>
+            </div>
+              </div>
             {{/each}}
+            {{else}}
+  {{#each itemsForSale}}
+<div class="col-md-6">
+            <div class="product" data-product="{{this.dataValues.id}}">
+                <li>{{this.dataValues.name}} - ${{this.dataValues.price}}</li>
+                <img class="img img-thumbnail"
+                    src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg" />
+                <button class="addtocart">Add to Cart</button>
+            </div>
+              </div>
+            {{/each}}
+            {{/if}}
         </ul>
-    </div>
+  
 </div>

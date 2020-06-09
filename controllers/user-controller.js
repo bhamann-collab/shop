@@ -1,22 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const passport = require('passport');
+const passport = require('../config/passport');
 
 
 //Load User model 
-var {users: Users} = require("../models/index");
-const {forwardAuthenticated} = require('../config/middleware/isAuthenticated');
+// var {users: Users} = require("../models/index");
+// const forwardAuthenticated = require('../config/middleware/isAuthenticated');
 
 // Login Page
-router.get('/', forwardAuthenticated, (req, res) => res.render('/'));
+// router.get('/', forwardAuthenticated, (req, res) => res.render('/'));
 
-router.post('/', (req, res, next) => {
-    passport.authenticate('local', {
-        successRedirect: '/',
-        failureRedirect: '/',
-      })(req, res, next);
-    });
+router.post('/api/users', passport.authenticate("local"), function(req, res) {//when route called it uses the passport.authenticate middleware before running the callback function
+  console.log("Has been authenticated next step");
+  res.json(req.user);//returns the user from the authenticate function
+});
 
     module.exports = router;
 
@@ -110,4 +108,3 @@ router.post('/', (req, res, next) => {
 //         done(err, user);
 //     });
 // });
-

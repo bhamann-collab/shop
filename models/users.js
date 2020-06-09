@@ -25,8 +25,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     })
 
-// checks if an unhashed password entered by the user can be compared to the hashed password stored in our database
-Users.prototype.validPassword = function(password) {
+    Users.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 // before a User is created, their password will be automatically hash their password
@@ -34,8 +33,9 @@ Users.prototype.validPassword = function(password) {
     users.password = bcrypt.hashSync(users.password, bcrypt.genSaltSync(10), null);
     });
 
-return Users;
-};
+    return Users;
+}
+// };
 
 
     //     module.exports.createUser = function(newUser, callback) {

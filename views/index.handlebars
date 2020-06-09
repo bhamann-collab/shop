@@ -1,15 +1,22 @@
+{{#if user}}
+<button class="log" style="width: auto;">
+    Sign Out
+</button>
+{{else}}
 <button onclick="document.getElementById('id01').style.display='block'" class="log" style="width: auto;">
     Login
 </button>
-
-<div id="id01" class="modal">
-    <form class="modal-content animate" action="/action_page.php" method="post">
+<button onclick="document.getElementById('id03').style.display='block'" class="log" style="width: auto;">
+    Sign Up
+</button>
+{{/if}}
+<div id="id01" class="modal ">
+    <form id="loginF" class="modal-content animate container">
         <div class="imgcontainer">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required />
+            <label for="uname"><b>Enter your details below</b></label>
+            <input type="text" placeholder="Email Address" id="email" required />
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required />
+            <input type="password" placeholder="Enter Password" id="psw" required />
 
             <button type="submit">Login</button>
             <label>
@@ -18,7 +25,7 @@
             </label>
         </div>
 
-        <div class="container" style="background-color: #f1f1f1;">
+        <div style="background-color: #f1f1f1;">
             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
                 Cancel
             </button>
@@ -28,22 +35,21 @@
 </div>
 
 <div id="myDIV" class="header">
-    <h2 style="margin: 5px;">My shoe shopping list</h2>
-    <input type="text" id="myInput" placeholder="Add an item..." />
-    <span onclick="newElement()" class="addBtn">Add</span>
+    <h1 style="font-size: 6vw; margin: 5px;">Kicks United</h1>
+    
 </div>
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-4">
+        <div class="col-md-8">
             <div class="item1">
                 <ul id="myUL"></ul>
                 {{> products}}
             </div>
         </div>
-        <div class="col-xs-8">
+        <div class="col-md-4">
             <div class="item3">
-                <div class="container">
+
                     <h4>
                         Cart
                         <span class="price red">
@@ -54,49 +60,19 @@
                     </h4>
 
                     <hr>
+                    {{#if user}}
                     <p>Total <span class="price black"><b>$</b></span></p>
-                    <form>
-                        <input type="submit" value="Continue to checkout" class="btn" style="color: blue;">
-                    </form>
-                </div>
+                    <button onclick="document.getElementById('id02').style.display='block'" class="log" style="width: auto;">
+    Continue to checkout
+</button>
+{{/if}}
+<div id="id02" class="modal">
+</div>
+           
             </div>
         </div>
     </div>
 
 </div>
 
-<div class="item4">
-    <form class="example" action="" style="margin: auto; max-width: 300px;">
-        <input type="text" placeholder="Search.." name="search2" />
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-</div>
-
-
-
-{{!-- <div class="text-center">
-    <div class="row">
-        <div class="col-md-4">
-            <!--items for sale-->
-            {{> products}}
-        </div>
-        <div class="col-md-4">
-            <!--Your cart-->
-            {{> cart}}
-        </div>
-            <div class="col-md-4">
-        <!--Payment options-->
-        {{> purchase}}
-    </div>
-<<<<<<< HEAD
-
-</div>
-
-=======
-  </div>
-</div> --}}
-
-{{!-- {{#each data}}
-    {{this.dataValues.name}}
-{{/each}} --}}
->>>>>>> 034e7f1a19abb4609a7399dda01b72c964c8a5b7
+<script src="/js/script.js"></script>
