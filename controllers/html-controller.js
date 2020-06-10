@@ -12,6 +12,11 @@ var {saleItems: SaleItems} = require("../models/index");
 var {items: Items} = require("../models/index");
 //I THINK THIS NEEDS TO ASK FOR A NEW ADDRESS ONCE LOGGED IN
 module.exports = function (app) {
+    app.get("/logout", function(req, res){
+        req.logout();
+        res.redirect("/");
+      });
+      
     app.get("/", async function (req, res) {
         //console.log("THE REQ IS "+req.user.id)//all seems to be working apart from the login sending the req details to this new page call
 if (req.user) {
