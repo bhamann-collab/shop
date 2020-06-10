@@ -62,7 +62,10 @@
 $(document).ready(function () {
   //USER SIGN UP
   $("#signoutB").on("click", function () {
-    $.get("/logout");
+    $.get("/logout").then(function () {
+      console.log("logged out");
+      window.location.replace("/");
+    });
   });
 
   $("#signupF").on("submit", function (event) {
