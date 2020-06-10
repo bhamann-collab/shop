@@ -15,6 +15,7 @@ router.get("/api/saleItems", function(req, res) {
 
 //posting a new entry in the saleitems table
 router.post ("/api/saleItems/:id", function(req, res) {
+    
     let saleItems = req.params.id;
     //need to add this to the items and associate it with the current order
     SaleItems.findOne({
