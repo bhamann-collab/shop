@@ -60,6 +60,32 @@
 
 // Ajax post when user completes login form.
 $(document).ready(function () {
+//USER SIGN UP
+  $("#signupF").on("submit", function (event) {
+    event.preventDefault();
+
+    let user = {
+      fname: $("#fnameSU").val().trim(),
+      lname: $("#lnameSU").val().trim(),
+      email: $("#emailSu").val().trim(),
+      password: $("#pswSU").val().trim(),
+    };
+    console.log(user);
+
+    //send post request
+    $.post("/api/signup", {
+      fname: user.fname,
+      lname: user.lname,
+      email: user.email,
+      password: user.password
+    }).then(function () {
+        console.log("logged in");
+        window.location.replace("/");
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+    });
 
   //User clicks SUBMIT user details will be validated
   $("#loginF").on("submit", function (event) {
@@ -75,8 +101,11 @@ $(document).ready(function () {
     $.post("/api/users", {
       email: user.username,
       password: user.password
-    }).then(function () {
-        console.log("logged in");
+    }).then(function (res) {
+      console.log(res);
+      // $.get("/", {
+      //   user: res
+      // });
         window.location.replace("/");
       })
       .catch(function (err) {

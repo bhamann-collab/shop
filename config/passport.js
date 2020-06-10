@@ -16,8 +16,10 @@ passport.use(new LocalStrategy(//new instance of a passport strategy
                 return done(null, false);
             }
             else if (!dbUser.validPassword(password)) { //if password doesn't match then responds below
-            console.log("invalid password"); 
-            return done(null, dbUser);
+
+            console.log("Invalid Password")
+            return done(null, false);
+
             }
             return done(null, dbUser); //if no errors occur it completes
         });
