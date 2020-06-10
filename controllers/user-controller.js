@@ -108,4 +108,3 @@ router.post('/api/users', passport.authenticate("local"), function(req, res) {//
 //         done(err, user);
 //     });
 // });
-

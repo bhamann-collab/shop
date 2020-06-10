@@ -24,6 +24,8 @@ fs
   
   .forEach(file => {
     const model = sequelize['import'](path.join(__dirname, file));
+    console.log(model);
+    console.log("reachedhere");
     db[model.name] = model;
   });
   
@@ -32,7 +34,6 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 });
-
 
 
 db.sequelize = sequelize;

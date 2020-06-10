@@ -17,125 +17,78 @@
     <link />
     <title>Kicks United</title>
   </head>
-  <body>
-    <div id="myDIV" class="header">
-      <aside>
-        <button
-          onclick="document.getElementById('id01').style.display='block'"
-          style="width: auto;"
-        >
-          Login
-        </button>
-
-        <div id="id01" class="modal">
-          <form
-            class="modal-content animate"
-            action="/action_page.php"
-            method="post"
-          >
-            <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input
-                type="text"
-                placeholder="Enter Username"
-                name="uname"
-                required
-              />
-
-              <label for="psw"><b>Password</b></label>
-              <input
-                type="password"
-                placeholder="Enter Password"
-                name="psw"
-                required
-              />
-
-              <button type="submit">Login</button>
+  <body> 
+       
+    <div id="myDIV" class="header">  
+      <div class="row">
+        <div class="col-75">
+          <div class="container">
+            <form action="/action_page.php">
+      
+              <div class="row">
+                <div class="col-50">
+                  <h3>Billing Address</h3>
+                  <label for="fname"><i1 class="fa fa-user"></i1> Full Name</label>
+                  <input type="text" id="fname" name="firstname" placeholder="">
+                  <label for="email"><i1 class="fa fa-envelope"></i1> Email</label>
+                  <input type="text" id="email" name="email" placeholder="">
+                  <label for="adr"><i1 class="fa fa-address-card-o"></i1> Address</label>
+                  <input type="text" id="adr" name="address" placeholder="">
+                  <label for="city"><i1 class="fa fa-institution"></i1> City</label>
+                  <input type="text" id="city" name="city" placeholder="">
+      
+                  <div class="row">
+                    <div class="col-50">
+                      <label for="state">State</label>
+                      <input type="text" id="state" name="state" placeholder="">
+                    </div>
+                    <div class="col-50">
+                      <label for="zip">Zip</label>
+                      <input type="text" id="zip" name="zip" placeholder="">
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="col-50">
+                  <h3>Payment</h3>
+                  <label for="fname">Accepted Cards</label>
+                  <div class="icon-container">
+                    <i1 class="fa fa-cc-visa" style="color:navy;"></i1>
+                    <i1 class="fa fa-cc-amex" style="color:blue;"></i1>
+                    <i1 class="fa fa-cc-mastercard" style="color:red;"></i1>
+                    <i1 class="fa fa-cc-discover" style="color:orange;"></i1>
+                  </div>
+                  <label for="cname">Name on Card</label>
+                  <input type="text" id="cname" name="cardname" placeholder="">
+                  <label for="ccnum">Credit card number</label>
+                  <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                  <label for="expmonth">Exp Month</label>
+                  <input type="text" id="expmonth" name="expmonth" placeholder="September">
+      
+                  <div class="row">
+                    <div class="col-50">
+                      <label for="expyear">Exp Year</label>
+                      <input type="text" id="expyear" name="expyear" placeholder="2018">
+                    </div>
+                    <div class="col-50">
+                      <label for="cvv">CVV</label>
+                      <input type="text" id="cvv" name="cvv" placeholder="">
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+              <aside>
               <label>
-                <input type="checkbox" checked="checked" name="remember" />
-                Remember me
-              </label>
-            </div>
-
-            <div class="container" style="background-color: skyblue;">
-              <button
-                type="button"
-                onclick="document.getElementById('id01').style.display='none'"
-                class="cancelbtn"
-              >
-                Cancel
-              </button>
-              <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
+                <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing 
+              </label> 
+            <form>
+            <a class="btn" href="index.html"><p>continue shopping?</p></a>
+            <a class="btn" href="index2.html"><p>leave?</p></a>
           </form>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">Menu</button>
-          <div class="dropdown-content">
-            <p>Shoe 1</p>
-            <img
-              class="img img-thumbnail"
-              src="https://i.insider.com/5e38419b5bc79c4c7d4e1192?width=906&format=jpeg"
-            />
-            <p>Shoe 2</p>
-            <img
-              class="img img-thumbnail"
-              src="https://www.tenniswarehouse.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/a/aa8030-108-phsrh000-1000.1578879230.jpeg"
-            />
-
-            <p>Shoe 3</p>
-            <img
-              class="img img-thumbnail"
-              src="https://media.hypedc.com/media/catalog/product/cache/1/image/1500x/9df78eab33525d08d6e5fb8d27136e95/a/r/ar9293-001_blk_01.jpg"
-            />
-
-            <p>Shoe 4</p>
-            <img
-              class="img img-thumbnail"
-              src="https://images.boardriders.com/globalGrey/dcshoes-products/all/default/large/adys100476_legacyog,p_mlt_frt2.jpg"
-            />
+                </aside>          
           </div>
         </div>
-      </aside>
-      <h1 style="margin: 5px;">My shoe shopping list</h1>
-      <input type="text" id="myInput" placeholder="Add an item..." />
-      <span onclick="newElement()" class="addBtn">Add</span>
-    </div>
-
-    <div class="row">
-      <div class="column" style="border: 2px solid black;">
-        <h2>ADD SHOES..</h2>
-        <ul id="myUL"></ul>
-      </div>
-      <div class="column" style="border: 2px solid black;">
-        <h2>
-          YOUR CART..
-          <span class="price" style="color: blue;">
-            <i class="fa fa-shopping-cart"></i>
-          </span>
-          <br />
-          <br />
-          <p><span class="price">$...</span></p>
-          <p><span class="price">$...</span></p>
-          <p><span class="price">$...</span></p>
-          <p><span class="price">$...</span></p>
-          <p>
-            Total <span class="price" style="color: black;"><b>$...</b></span>
-          </p>
-        </h2>
-        <form>
-          <input
-            type="submit"
-            value="Continue to checkout"
-            class="btn"
-            style="color: blue;"
-          />
-        </form>
-      </div>
-    </div>
-    <div class="footer" style="border: 2px solid black;">
-      <h2></h2>
-    </div>
     <script>
       // Create a "close" button and append it to each list item
       var myNodelist = document.getElementsByTagName("LI");

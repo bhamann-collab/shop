@@ -26,7 +26,14 @@ app.use(passport.session());
 let exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({
     defaultLayout: "main",
-    extname: "handlebars"
+    extname: "handlebars",
+    helpers: {
+        //Custom helper to show the total price of the order
+        getTotal: function (shoes){
+            let total = shoes.reduce(function(a, b) { return a + b.dataValues.saleItem.dataValues.price; }, 0)
+            return total
+        }
+    }
 }));
 app.set("view engine", "handlebars");
 

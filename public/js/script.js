@@ -72,6 +72,46 @@ $(document).ready(function () {
     console.log(user);
 
     //send post request
+<<<<<<< HEAD
+    $.ajax("/api/users", {
+      type: "POST",
+      data: user
+    }).then(
+
+      function () {
+        console.log("created new user");
+        //reload current page with updated user list.
+        // location.reload();
+      })
+  });
+
+  
+  // Ajax post when user updates an item 
+  $(".update-item").on("click", function (event) {
+    let id = $(this).data("id");
+
+    $.ajax("api/items" + id, {
+      type: "PUT"
+    }).then(
+      function () {
+        console.log("item updated", id);
+        // location.reload();
+      });
+  });
+
+
+  // Ajax post when user deletes cart. 
+  $(".delete-cart").on("click", function (event) {
+
+    // Send the DELETE request.
+    $.ajax("api/saleItems/", {
+      type: "DELETE"
+    }).then(
+      function () {
+        console.log("deleted cart");
+        // Reload the page to get the updated list
+        // location.reload();
+=======
     $.post("/api/users", {
       email: user.username,
       password: user.password
@@ -81,6 +121,7 @@ $(document).ready(function () {
       })
       .catch(function (err) {
         console.log(err);
+>>>>>>> 74dce26cbd4440ac737396b79c8c8e6b1b173450
       });
     });
 
