@@ -2,19 +2,19 @@ var express = require("express");
 var router = express.Router();
 
 //importing Items model 
-var {items: Items} = require("../models/index");
+var { items: Items } = require("../models/index");
 
 //creating routes
 
 //Getting all entries from the items table
-router.get("/api/items", function(req, res) {
-    Items.findAll().then(function(result) {
+router.get("/api/items", function (req, res) {
+    Items.findAll().then(function (result) {
         return res.json(result)
     })
 })
 
 //posting a new entry in the items table
-router.post ("/api/items", function(req, res) {
+router.post("/api/items", function (req, res) {
     var items = req.body;
 
     Items.create({
@@ -26,7 +26,7 @@ router.post ("/api/items", function(req, res) {
 });
 
 // posting an update in the items table
-router.put ("api/items", function (req,res) {
+router.put("api/items", function (req, res) {
     let items = req.body;
 
     Items.update({

@@ -18,7 +18,7 @@ app.use(express.json());
 
 // Static directory to be served`
 app.use(express.static("./public"));
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true}));//creates a login session and stores the state in a cookie
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));//creates a login session and stores the state in a cookie
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -29,12 +29,12 @@ app.engine("handlebars", exphbs({
     extname: "handlebars",
     helpers: {
         //Custom helper to show the total price of the order
-        getTotal: function (shoes){
-            let total = shoes.reduce(function(a, b) { 
-                let totalVal = a + b.dataValues.saleItem.dataValues.price; 
-                return totalVal; 
+        getTotal: function (shoes) {
+            let total = shoes.reduce(function (a, b) {
+                let totalVal = a + b.dataValues.saleItem.dataValues.price;
+                return totalVal;
             }, 0)
-            return (total- 23.65).toFixed(2);
+            return (total - 23.65).toFixed(2);
         }
     }
 }));
@@ -50,8 +50,8 @@ app.use(require('./controllers/items-controller'))
 require('./controllers/html-controller')(app)
 // =============================================================
 
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
 });
 
 

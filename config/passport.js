@@ -6,19 +6,19 @@ passport.use(new LocalStrategy(//new instance of a passport strategy
     {
         usernameField: "email" //configured to use username
     },
-    function(usr, password, done) { //when signing in this code runs
+    function (usr, password, done) { //when signing in this code runs
         db.users.findOne({
             where: {
                 email: usr//finds user in database
             }
-        }).then(function(dbUser) {
+        }).then(function (dbUser) {
             if (!dbUser) {//if it cant find user then it returns below
                 return done(null, false);
             }
             else if (!dbUser.validPassword(password)) { //if password doesn't match then responds below
 
-            console.log("Invalid Password")
-            return done(null, false);
+                console.log("Invalid Password")
+                return done(null, false);
 
             }
             return done(null, dbUser); //if no errors occur it completes
@@ -26,11 +26,11 @@ passport.use(new LocalStrategy(//new instance of a passport strategy
     }
 ));
 
-passport.serializeUser(function(user, cb) {
+passport.serializeUser(function (user, cb) {
     cb(null, user);//serialized the user to transfer across http requests
 });
 
-passport.deserializeUser(function(obj, cb) {
+passport.deserializeUser(function (obj, cb) {
     cb(null, obj);//same as above only reverses serialisation
 });
 

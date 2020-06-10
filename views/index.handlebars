@@ -61,7 +61,7 @@
 
 <div id="myDIV" class="header">
     <h1 style="font-size: 6vw; margin: 5px;">Kicks United</h1>
-    
+
 </div>
 
 <div class="container">
@@ -75,26 +75,24 @@
         <div class="col-md-4">
             <div class="item3">
 
-                    <h4>
-                        Cart
-                        <span class="price red">
-                            <i class="fa fa-shopping-cart"></i>
-                            <b></b>
-                        </span>
-                        {{> cart}}
-                    </h4>
-                    {{#if user}}
-                    <button onclick="document.getElementById('id02').style.display='block'" class="log" style="width: auto;">
-    Continue to checkout
-</button>
-{{/if}}
-<div id="id02" class="modal">
-</div>
-           
+                <h4>
+                    Cart
+                    <span class="price red">
+                        <i class="fa fa-shopping-cart"></i>
+                        <b></b>
+                    </span>
+                    {{> cart}}
+                </h4>
+                {{#if user}}
+                <button onclick="document.getElementById('id02').style.display='block'" class="log"
+                    style="width: auto;">
+                    Continue to checkout
+                </button>
+                {{/if}}
+                <div id="id02" class="modal">
+                </div>
+
             </div>
         </div>
     </div>
 </div>
-
-
-

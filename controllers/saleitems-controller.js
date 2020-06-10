@@ -13,18 +13,5 @@ router.get("/api/saleItems", function(req, res) {
     })
 });
 
-
-
-// router.delete("/api/saleitems/:id", async (req, res, next) => {
-//     let saleItems = req.params.id;
-//     Items.destroy({
-//         where: {
-//             id: saleItems,
-//         }
-//     });
-
-//     res.status(204).end();
-// })
-
 // exporting routes to server.js
 module.exports = router;
