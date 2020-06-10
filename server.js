@@ -31,10 +31,10 @@ app.engine("handlebars", exphbs({
         //Custom helper to show the total price of the order
         getTotal: function (shoes){
             let total = shoes.reduce(function(a, b) { 
-                let totalVal = +(a + b.dataValues.saleItem.dataValues.price - 23.65).toFixed(2)
+                let totalVal = a + b.dataValues.saleItem.dataValues.price; 
                 return totalVal; 
             }, 0)
-            return total
+            return (total- 23.65).toFixed(2);
         }
     }
 }));
